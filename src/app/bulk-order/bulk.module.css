@@ -1,0 +1,49 @@
+.page { min-height: 100vh; background: #faf8f5; }
+.hero { position: relative; height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.heroBg { position: absolute; inset: 0; background: linear-gradient(135deg, #1b2b22 0%, #2d5016 60%, #1b4332 100%); }
+.heroContent { position: relative; text-align: center; color: #faf8f5; padding: 0 24px; }
+.heroOverline { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; color: #c49a45; display: block; margin-bottom: 12px; }
+.heroTitle { font-family: var(--font-serif, Georgia, serif); font-size: 2.8rem; font-weight: 800; margin-bottom: 12px; }
+.heroSubtitle { font-size: 1rem; color: rgba(250,248,245,0.75); max-width: 500px; margin: 0 auto; line-height: 1.6; }
+
+.contentSection { padding: 64px 32px; max-width: 1280px; margin: 0 auto; }
+.inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+
+.benefits {}
+.benefitsTitle { font-family: var(--font-serif, Georgia, serif); font-size: 1.6rem; font-weight: 800; color: #1b4332; margin-bottom: 24px; }
+.benefitCard { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 20px; padding: 18px; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); border: 1px solid rgba(27,67,50,0.06); }
+.benefitIcon { font-size: 1.8rem; flex-shrink: 0; }
+.benefitTitle { font-size: 0.95rem; font-weight: 700; color: #1b2b22; margin-bottom: 4px; }
+.benefitDesc { font-size: 0.82rem; color: #6b7280; line-height: 1.5; }
+
+.formWrap { background: #fff; border-radius: 20px; padding: 36px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); border: 1px solid rgba(27,67,50,0.07); }
+.formTitle { font-family: var(--font-serif, Georgia, serif); font-size: 1.5rem; font-weight: 800; color: #1b4332; margin-bottom: 6px; }
+.formSubtitle { font-size: 0.85rem; color: #888; margin-bottom: 28px; }
+.fieldRow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { margin-bottom: 18px; }
+.label { display: block; font-size: 0.78rem; font-weight: 700; color: #1b2b22; margin-bottom: 6px; letter-spacing: 0.03em; }
+.input, .select, .textarea {
+  width: 100%; padding: 11px 14px; font-size: 0.88rem; border-radius: 10px;
+  border: 1.5px solid #e0dfdb; background: #faf8f5; color: #1c1c1a;
+  outline: none; transition: border-color 0.2s; box-sizing: border-box;
+}
+.input:focus, .select:focus, .textarea:focus { border-color: #1b4332; background: #fff; }
+.textarea { resize: vertical; min-height: 100px; }
+.submitBtn {
+  width: 100%; padding: 14px; background: #1b4332; color: #fff;
+  font-size: 0.95rem; font-weight: 700; border-radius: 12px; border: none;
+  cursor: pointer; transition: background 0.2s; margin-top: 8px;
+}
+.submitBtn:hover { background: #c49a45; }
+.formNote { font-size: 0.72rem; color: #aaa; margin-top: 12px; line-height: 1.5; }
+
+.successBox { text-align: center; padding: 40px 20px; }
+.successIcon { width: 64px; height: 64px; background: #1b4332; color: #fff; border-radius: 50%; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+.successBox h2 { font-family: var(--font-serif, Georgia, serif); font-size: 1.5rem; color: #1b4332; margin-bottom: 12px; }
+.successBox p { font-size: 0.9rem; color: #555; line-height: 1.6; margin-bottom: 24px; }
+.resetBtn { padding: 11px 24px; background: #f0af02; color: #1c2a21; font-size: 0.85rem; font-weight: 700; border-radius: 10px; border: none; cursor: pointer; }
+
+@media (max-width: 900px) {
+  .inner { grid-template-columns: 1fr; }
+  .fieldRow { grid-template-columns: 1fr; }
+}
