@@ -239,6 +239,7 @@
 
 .slideImg {
   object-fit: cover;
+  object-position: center center;
 }
 
 .slideOverlay {
@@ -302,6 +303,32 @@
 
 .slideShopBtn:hover {
   background-color: #143427;
+}
+
+.heroShopBtn {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1b4332;
+  color: #ffffff;
+  padding: 18px 48px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  transition: var(--transition-fast);
+  border-radius: 50px;
+  z-index: 10;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.heroShopBtn:hover {
+  background-color: #143427;
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
 }
 
 .carouselPrevArrow, .carouselNextArrow {
@@ -469,7 +496,8 @@
 /* Card image container (used in JSX) */
 .cardImageContainer {
   width: 100%;
-  height: 300px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   background: linear-gradient(135deg, #f4f9f4 0%, #e8f5e9 100%);
   display: flex;
   align-items: center;
@@ -485,7 +513,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 12px;
+  padding: 0;
 }
 
 .jarVisualContainer:hover svg,
@@ -1406,6 +1434,8 @@
 .cartItems {
   flex-grow: 1;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e0dfdb transparent;
   padding-right: 8px;
   margin-bottom: 20px;
 }
@@ -1576,6 +1606,8 @@
   position: relative;
   animation: fade-in-up 0.35s cubic-bezier(0.25, 1, 0.5, 1);
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e0dfdb transparent;
   max-height: 90vh;
 }
 
@@ -1599,7 +1631,7 @@
 
 .modalGrid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: 310px 1fr;
   gap: 40px;
   align-items: flex-start;
 }
@@ -1815,6 +1847,8 @@
   flex-grow: 1;
   padding: 16px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e0dfdb transparent;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1921,6 +1955,12 @@
     height: 50vh;
   }
   
+  .heroShopBtn {
+    padding: 14px 36px;
+    font-size: 0.85rem;
+    bottom: 25px;
+  }
+  
   .videoTitle {
     font-size: 2.2rem;
   }
@@ -1963,4 +2003,507 @@
   .footerColBrand, .footerColBadges {
     grid-column: span 1;
   }
+}
+
+
+/* PC & Mobile Responsive Hero Carousels */
+.pcHeroCarousel {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 860;
+  overflow: hidden;
+  border-bottom: 1px solid #f0f0ee;
+}
+
+.mobileHeroCarousel {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: calc(100dvh - 84px);
+  max-height: calc(100dvh - 84px);
+  overflow: hidden;
+  border-bottom: 1px solid #f0f0ee;
+  background-color: #faf8f5;
+}
+
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1c2a21;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.carouselArrow:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.carouselArrowPrev {
+  left: 20px;
+}
+
+.carouselArrowNext {
+  right: 20px;
+}
+
+.carouselDots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px 16px;
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dotActive {
+  background: #ffffff;
+  width: 26px;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .pcHeroCarousel {
+    display: none !important;
+  }
+  .mobileHeroCarousel {
+    display: block !important;
+  }
+}
+
+
+/* Bento Grid Gut Science Section ("Your gut knows so does science") */
+.gutScienceSection {
+  background-color: #faf6ee;
+  padding: 80px 24px;
+  width: 100%;
+}
+
+.gutScienceHeader {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.strawberryIcon {
+  font-size: 2.8rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.gutScienceTitle {
+  font-family: var(--font-serif);
+  font-size: 3.6rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #1a1510;
+  letter-spacing: -0.02em;
+}
+
+.gutScienceSubTitle {
+  font-weight: 500;
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: #2b241d;
+}
+
+/* 3-Column Bento Grid Container */
+.bentoGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+}
+
+.bentoImg {
+  object-fit: cover;
+  border-radius: 28px;
+  transition: transform 0.4s ease;
+}
+
+/* Card 1: Top Left Brown */
+.bentoCardTextBrown {
+  background-color: #6d392b;
+  color: #ffffff;
+  padding: 36px 32px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+}
+
+.bentoCardTextBrown h3 {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.bentoCardTextBrown p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Card 2: Top Middle Gold */
+.bentoCardTextGold {
+  background-color: #e58d18;
+  color: #1a1510;
+  padding: 36px 32px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+}
+
+.bentoCardTextGold h3 {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.bentoCardTextGold p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Card 3: Tall Right Coral Pink (Spans 2 Rows) */
+.bentoCardTallPink {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  position: relative;
+  border-radius: 28px;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+/* Card 4: Middle Left Blue */
+.bentoCardBlue {
+  grid-column: 1;
+  grid-row: 2 / span 2;
+  position: relative;
+  border-radius: 28px;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+/* Card 5: Middle Center Brown Img */
+.bentoCardBrownImg {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  border-radius: 28px;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+/* Card 6: Bottom Center Coral Pink Text */
+.bentoCardTextPink {
+  grid-column: 2;
+  grid-row: 3;
+  background-color: #f45b69;
+  color: #ffffff;
+  padding: 36px 32px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+  text-align: center;
+}
+
+.bentoCardTextPink h3 {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.bentoCardTextPink p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+/* Card 7: Bottom Right Flatlay */
+.bentoCardFlatlay {
+  grid-column: 3;
+  grid-row: 3;
+  position: relative;
+  border-radius: 28px;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+/* Hover effects */
+.bentoCardTallPink:hover .bentoImg,
+.bentoCardBlue:hover .bentoImg,
+.bentoCardBrownImg:hover .bentoImg,
+.bentoCardFlatlay:hover .bentoImg {
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .gutScienceSection {
+    padding: 36px 12px;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .bentoGrid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-rows: auto auto auto !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+  }
+
+  .bentoCardTextBrown,
+  .bentoCardTextGold,
+  .bentoCardTextPink {
+    padding: 16px 10px !important;
+    border-radius: 16px !important;
+    min-height: 120px !important;
+    box-sizing: border-box !important;
+  }
+
+  .bentoCardTextBrown h3,
+  .bentoCardTextGold h3,
+  .bentoCardTextPink h3 {
+    font-size: 0.8rem !important;
+    margin-bottom: 6px !important;
+    line-height: 1.15 !important;
+  }
+
+  .bentoCardTextBrown p,
+  .bentoCardTextGold p,
+  .bentoCardTextPink p {
+    font-size: 0.62rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .bentoCardTallPink {
+    grid-column: 3 !important;
+    grid-row: 1 / span 2 !important;
+    min-height: 250px !important;
+    border-radius: 16px !important;
+  }
+
+  .bentoCardBlue {
+    grid-column: 1 !important;
+    grid-row: 2 / span 2 !important;
+    min-height: 250px !important;
+    border-radius: 16px !important;
+  }
+
+  .bentoCardBrownImg {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    min-height: 120px !important;
+    border-radius: 16px !important;
+  }
+
+  .bentoCardTextPink {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+  }
+
+  .bentoCardFlatlay {
+    grid-column: 3 !important;
+    grid-row: 3 !important;
+    min-height: 120px !important;
+    border-radius: 16px !important;
+  }
+
+  .gutScienceTitleSingleLine {
+    font-size: 1.25rem !important;
+    text-align: center !important;
+  }
+}
+
+.gutScienceTitleSingleLine {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #1a1510;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  .gutScienceTitleSingleLine {
+    font-size: 1.8rem;
+  }
+}
+
+/* Product Card Image Auto-Slider (4s) */
+.cardSliderContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  cursor: pointer;
+  background-color: #faf8f5;
+}
+
+.cardSliderTrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cardSlideItem {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.cardSlideImg {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.cardSliderContainer:hover .cardSlideImg {
+  transform: scale(1.05);
+}
+
+.cardSliderDots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 4px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.cardDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cardDotActive {
+  width: 16px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+/* Modal 2-Photo Half-Half Grid Layout */
+/* Modal 2-Photo Stacked UP AND DOWN (Vertical 2-part BIG layout) */
+/* Modal 2-Photo Stacked UP AND DOWN (Fits both cards in ONE visible frame) */
+.modalGrid {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+/* Modal 2 Equal Square Images (Top & Bottom on Left Side) */
+.modalHalfHalfContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.modalHalfItem {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  background: #ffffff;
+  border: 1px solid #e0dfdb;
+}
+
+.modalHalfImg {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.modalHalfItem:hover .modalHalfImg {
+  transform: scale(1.04);
+}
+
+/* Styled Custom Scrollbar for Modal (Fixes dark vertical scrollbar line) */
+.modalBody::-webkit-scrollbar,
+.modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modalBody::-webkit-scrollbar-track,
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modalBody::-webkit-scrollbar-thumb,
+.modal::-webkit-scrollbar-thumb {
+  background: #e0dfdb;
+  border-radius: 10px;
+}
+
+.modalBody::-webkit-scrollbar-thumb:hover,
+.modal::-webkit-scrollbar-thumb:hover {
+  background: #1b4332;
 }

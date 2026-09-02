@@ -27,9 +27,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className={styles.announcementBar}>
-        🇨🇦 FREE SHIPPING OVER C$45 ACROSS CANADA &bull; 100% CERTIFIED ORGANIC &bull; PACKAGED IN TORONTO, ON
-      </div>
+
       <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ""}`}>
         <div className={styles.headerInner}>
           {/* Logo Image */}

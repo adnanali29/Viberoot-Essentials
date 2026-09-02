@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import { PRODUCTS, getDarkenedColor } from "@/lib/products";
 import styles from "./shop.module.css";
 
@@ -41,6 +42,53 @@ function ProductJar({ color, labelName }) {
       <text x="80" y="132" fontSize="5.5" fontWeight="600" fontFamily="sans-serif" textAnchor="middle" fill="#1c1c1a" opacity="0.7">POWDER</text>
       <text x="80" y="143" fontSize="4" fontWeight="600" fontFamily="sans-serif" textAnchor="middle" fill="#1c1c1a" opacity="0.4">NET WT. 250G</text>
     </svg>
+  );
+}
+
+
+function ProductCardImageSlider({ images, alt, onClick }) {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    if (!images || images.length === 0) return;
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [images]);
+
+  if (!images || images.length === 0) return null;
+
+  return (
+    <div className={styles.cardSliderContainer} onClick={onClick}>
+      <div 
+        className={styles.cardSliderTrack} 
+        style={{ transform: `translateX(-${currentIdx * 100}%)` }}
+      >
+        {images.map((img, i) => (
+          <div key={i} className={styles.cardSlideItem}>
+            <Image 
+              src={img} 
+              alt={`${alt} image ${i + 1}`} 
+              fill 
+              sizes="(max-width: 768px) 100vw, 25vw"
+              className={styles.cardSlideImg} 
+            />
+          </div>
+        ))}
+      </div>
+      {images.length > 1 && (
+        <div className={styles.cardSliderDots} onClick={(e) => e.stopPropagation()}>
+          {images.map((_, i) => (
+            <span
+              key={i}
+              className={`${styles.cardDot} ${currentIdx === i ? styles.cardDotActive : ""}`}
+              onClick={() => setCurrentIdx(i)}
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -87,8 +135,12 @@ export default function ShopPage() {
         <div className={styles.grid}>
           {PRODUCTS.map((product) => (
             <div key={product.id} className={styles.card} onClick={() => setSelected(product)}>
-              <div className={styles.cardImage} style={{ background: `linear-gradient(135deg, ${product.lightColor}, #f0f5ef)` }}>
-                <ProductJar color={product.color} labelName={product.name} />
+              <div className={styles.cardImage}>
+                <ProductCardImageSlider 
+                  images={product.images} 
+                  alt={product.displayName} 
+                  onClick={() => setSelected(product)} 
+                />
               </div>
               <div className={styles.cardBody}>
                 <h3 className={styles.cardTitle}>{product.displayName}</h3>
@@ -124,8 +176,25 @@ export default function ShopPage() {
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <button className={styles.modalClose} onClick={() => setSelected(null)}>✕</button>
             <div className={styles.modalGrid}>
-              <div className={styles.modalImageWrap} style={{ background: `linear-gradient(135deg, ${selected.lightColor}, #f4f9f4)` }}>
-                <ProductJar color={selected.color} labelName={selected.name} />
+              <div className={styles.modalHalfHalfContainer}>
+                <div className={styles.modalHalfItem}>
+                  <Image 
+                    src={selected.images ? selected.images[0] : "/10.webp"} 
+                    alt={`${selected.name} View 1`} 
+                    fill 
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className={styles.modalHalfImg} 
+                  />
+                </div>
+                <div className={styles.modalHalfItem}>
+                  <Image 
+                    src={selected.images ? selected.images[1] : "/11.webp"} 
+                    alt={`${selected.name} View 2`} 
+                    fill 
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className={styles.modalHalfImg} 
+                  />
+                </div>
               </div>
               <div className={styles.modalBody}>
                 <h2 className={styles.modalTitle}>{selected.name}</h2>

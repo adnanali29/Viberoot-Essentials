@@ -14,7 +14,7 @@
 
 .header {
   position: sticky;
-  top: 34px;
+  top: 0;
   z-index: 100;
   background: #faf8f5;
   border-bottom: 1px solid rgba(27, 67, 50, 0.1);

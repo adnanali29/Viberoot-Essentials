@@ -9,6 +9,7 @@ const PRODUCTS = [
     id: "raspberry",
     name: "Organic Raspberry Powder",
     displayName: "Raspberry Powder",
+    images: ["/10.webp", "/11.webp", "/12.webp"],
     prices: { "125g": 14.99, "250g": 24.99, "500g": 44.99 },
     originalPrices: { "125g": 17.59, "250g": 29.39, "500g": 52.89 },
     color: "#e4053a",
@@ -35,8 +36,9 @@ const PRODUCTS = [
     id: "pineapple",
     name: "Organic Pineapple Fruit Juice Powder",
     displayName: "Pineapple Fruit Juice Powder",
-    prices: { "125g": 11.99, "250g": 19.99, "500g": 34.99 },
-    originalPrices: { "125g": 14.09, "250g": 23.49, "500g": 41.19 },
+    images: ["/13.webp", "/14.webp", "/15.webp"],
+    prices: { "125g": 16.99, "250g": 27.99, "500g": 49.99 },
+    originalPrices: { "125g": 19.99, "250g": 32.99, "500g": 58.89 },
     color: "#f0af02",
     lightColor: "rgba(240, 175, 2, 0.05)",
     hoverColor: "#c59002",
@@ -61,8 +63,9 @@ const PRODUCTS = [
     id: "beetroot",
     name: "Organic Beetroot Powder",
     displayName: "Beetroot Powder",
-    prices: { "125g": 10.99, "250g": 18.99, "500g": 32.99 },
-    originalPrices: { "125g": 12.89, "250g": 22.29, "500g": 38.79 },
+    images: ["/16.webp", "/17.webp", "/18.webp"],
+    prices: { "125g": 12.99, "250g": 20.99, "500g": 36.99 },
+    originalPrices: { "125g": 15.29, "250g": 24.99, "500g": 43.49 },
     color: "#9b2e36",
     lightColor: "rgba(155, 46, 54, 0.05)",
     hoverColor: "#7c2228",
@@ -87,8 +90,9 @@ const PRODUCTS = [
     id: "ginger",
     name: "Organic Ginger Root Powder",
     displayName: "Ginger Root Powder",
-    prices: { "125g": 9.99, "250g": 16.99, "500g": 29.99 },
-    originalPrices: { "125g": 11.69, "250g": 19.99, "500g": 35.29 },
+    images: ["/19.webp", "/20.webp", "/21.webp"],
+    prices: { "125g": 12.99, "250g": 20.99, "500g": 36.99 },
+    originalPrices: { "125g": 15.29, "250g": 24.99, "500g": 43.49 },
     color: "#b46e31",
     lightColor: "rgba(180, 110, 49, 0.05)",
     hoverColor: "#935722",
@@ -113,8 +117,9 @@ const PRODUCTS = [
     id: "wheatgrass",
     name: "Organic Wheat Grass Powder",
     displayName: "Wheat Grass Powder",
-    prices: { "125g": 13.99, "250g": 22.99, "500g": 39.99 },
-    originalPrices: { "125g": 16.49, "250g": 26.99, "500g": 46.99 },
+    images: ["/23.webp", "/24.webp", "/25.webp"],
+    prices: { "125g": 13.49, "250g": 21.99, "500g": 38.99 },
+    originalPrices: { "125g": 15.99, "250g": 25.99, "500g": 45.89 },
     color: "#465034",
     lightColor: "rgba(70, 80, 52, 0.05)",
     hoverColor: "#333d26",
@@ -138,27 +143,11 @@ const PRODUCTS = [
 ];
 
 const HERO_SLIDES = [
-  {
-    title: "Raw Organic Wheat Grass",
-    overline: "SAPTEMVEDA TRADITION • 100% PURE",
-    tagline: "The Ultimate Green Multivitamin. Sourced from organic young grass harvested at peak potency. No chemicals, zero fillers.",
-    image: "/recipe_wheatgrass.jpg",
-    productId: "wheatgrass"
-  },
-  {
-    title: "Vibrant Raspberry Powder",
-    overline: "ANTIOXIDANT POWERHOUSE • FRESH PRESSED",
-    tagline: "Bursting with Vitamin C and collagen support. Gently freeze-dried to lock in deep colors and natural sweetness.",
-    image: "/hero_banner.jpg",
-    productId: "raspberry"
-  },
-  {
-    title: "Pure Beetroot Stamina",
-    overline: "ATHLETIC STRENGTH • NITRIC OXIDE",
-    tagline: "Optimize oxygen circulation, reduce fatigue, and boost stamina. Earthy, organic nutrition in its truest form.",
-    image: "/hero_banner.jpg",
-    productId: "beetroot"
-  }
+  { id: 1, image: "/1.webp", title: "VibeRoot Banner 1" },
+  { id: 2, image: "/2.webp", title: "VibeRoot Banner 2" },
+  { id: 3, image: "/3.webp", title: "VibeRoot Banner 3" },
+  { id: 4, image: "/4.webp", title: "VibeRoot Banner 4" },
+  { id: 5, image: "/5.webp", title: "VibeRoot Banner 5" }
 ];
 
 const TESTIMONIALS = [
@@ -262,6 +251,53 @@ function ProductJar({ color, labelName }) {
   );
 }
 
+
+function ProductCardImageSlider({ images, alt, onClick }) {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    if (!images || images.length === 0) return;
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [images]);
+
+  if (!images || images.length === 0) return null;
+
+  return (
+    <div className={styles.cardSliderContainer} onClick={onClick}>
+      <div 
+        className={styles.cardSliderTrack} 
+        style={{ transform: `translateX(-${currentIdx * 100}%)` }}
+      >
+        {images.map((img, i) => (
+          <div key={i} className={styles.cardSlideItem}>
+            <Image 
+              src={img} 
+              alt={`${alt} image ${i + 1}`} 
+              fill 
+              sizes="(max-width: 768px) 100vw, 25vw"
+              className={styles.cardSlideImg} 
+            />
+          </div>
+        ))}
+      </div>
+      {images.length > 1 && (
+        <div className={styles.cardSliderDots} onClick={(e) => e.stopPropagation()}>
+          {images.map((_, i) => (
+            <span
+              key={i}
+              className={`${styles.cardDot} ${currentIdx === i ? styles.cardDotActive : ""}`}
+              onClick={() => setCurrentIdx(i)}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
   const [activeTheme, setActiveTheme] = useState(PRODUCTS[0]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -287,11 +323,11 @@ export default function Home() {
   ]);
   const [chatInput, setChatInput] = useState("");
 
-  // Slide autoplay
+  // Auto-slide autoplay every 5s
   useEffect(() => {
     const slideTimer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 6000);
+    }, 5000);
     return () => clearInterval(slideTimer);
   }, []);
 
@@ -402,11 +438,11 @@ export default function Home() {
 
 
 
-      {/* 3. Hero Slideshow Carousel (Auto-rotating) */}
+      {/* Auto-sliding Hero Carousel (Images 1-5) */}
       <section className={styles.carouselHero}>
         <div className={styles.slidesWrapper} style={{ transform: `translateX(-${activeSlide * 100}%)` }}>
           {HERO_SLIDES.map((slide, index) => (
-            <div key={index} className={styles.slideItem}>
+            <div key={slide.id} className={styles.slideItem}>
               <div className={styles.slideImageContainer}>
                 <Image 
                   src={slide.image} 
@@ -416,34 +452,19 @@ export default function Home() {
                   className={styles.slideImg}
                 />
               </div>
-              <div className={styles.slideOverlay} />
-              
-              <div className={styles.slideContent}>
-                <span className={styles.slideOverline}>{slide.overline}</span>
-                <h2 className={styles.slideTitle}>{slide.title}</h2>
-                <p className={styles.slideTagline}>{slide.tagline}</p>
-                <div className={styles.slideActions}>
-                  <a href="#shop" className={styles.slideShopBtn} onClick={() => {
-                    const match = PRODUCTS.find((p) => p.id === slide.productId);
-                    if (match) setActiveTheme(match);
-                  }}>
-                    SHOP NOW
-                  </a>
-                </div>
-              </div>
             </div>
           ))}
         </div>
-
+        
         <button 
-          className={styles.carouselPrevArrow} 
+          className={`${styles.carouselArrow} ${styles.carouselArrowPrev}`} 
           onClick={() => setActiveSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
           aria-label="Previous Slide"
         >
           ‹
         </button>
         <button 
-          className={styles.carouselNextArrow} 
+          className={`${styles.carouselArrow} ${styles.carouselArrowNext}`} 
           onClick={() => setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length)}
           aria-label="Next Slide"
         >
@@ -451,14 +472,87 @@ export default function Home() {
         </button>
 
         <div className={styles.carouselDots}>
-          {HERO_SLIDES.map((_, i) => (
-            <button 
-              key={i} 
-              className={`${styles.carouselDot} ${activeSlide === i ? styles.carouselDotActive : ""}`}
-              onClick={() => setActiveSlide(i)}
-              aria-label={`Go to slide ${i + 1}`}
+          {HERO_SLIDES.map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.dot} ${activeSlide === index ? styles.dotActive : ""}`}
+              onClick={() => setActiveSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
+        </div>
+      </section>
+
+      {/* 3.5. Bento Grid Gut Science Section ("Your gut knows so does science") */}
+      <section className={styles.gutScienceSection}>
+        <div className={styles.gutScienceHeader}>
+          <h2 className={styles.gutScienceTitleSingleLine}>
+            Rooted in Earth &bull; Crafted for Worth
+          </h2>
+        </div>
+
+        <div className={styles.bentoGrid}>
+          {/* Top Left Card 1 (Chestnut Brown) */}
+          <div className={styles.bentoCardTextBrown}>
+            <h3>Pure never tasted this simple</h3>
+            <p>No additives. No shortcuts. Just real ingredients, straight from nature.</p>
+          </div>
+
+          {/* Top Middle Card 2 (Golden Amber) */}
+          <div className={styles.bentoCardTextGold}>
+            <h3>Real food, no compromises</h3>
+            <p>Nothing artificial. Nothing hidden. Just clean, honest powders.</p>
+          </div>
+
+          {/* Right Tall Card 3 (Raspberry Coral Pink) */}
+          <div className={styles.bentoCardTallPink}>
+            <Image 
+              src="/bento_raspberry_hand.jpg" 
+              alt="Hand holding VibeRoot Organic Raspberry Powder"
+              fill
+              sizes="(max-width: 900px) 100vw, 33vw"
+              className={styles.bentoImg}
+            />
+          </div>
+
+          {/* Middle Left Card 4 (Sky Blue) */}
+          <div className={styles.bentoCardBlue}>
+            <Image 
+              src="/bento_powders_sky.jpg" 
+              alt="Hands holding organic superfood powders up against the blue sky"
+              fill
+              sizes="(max-width: 900px) 100vw, 33vw"
+              className={styles.bentoImg}
+            />
+          </div>
+
+          {/* Middle Center Card 5 (Floating Superfoods Chocolate) */}
+          <div className={styles.bentoCardBrownImg}>
+            <Image 
+              src="/bento_floating_powders.jpg" 
+              alt="Dynamic floating organic superfood pouches and ingredients"
+              fill
+              sizes="(max-width: 900px) 100vw, 33vw"
+              className={styles.bentoImg}
+            />
+          </div>
+
+          {/* Bottom Center Card 6 (Coral Pink Text) */}
+          <div className={styles.bentoCardTextPink}>
+            <h3>Simple by design, pure by nature</h3>
+            <p>100% organic. Nothing added. Just the real thing, every scoop.</p>
+          </div>
+
+          {/* Bottom Right Card 7 (Pouches Flatlay) */}
+          <div className={styles.bentoCardFlatlay}>
+            <Image 
+              src="/bento_flatlay_pouches.jpg" 
+              alt="Aesthetic flatlay of VibeRoot organic superfood drink pouches"
+              fill
+              sizes="(max-width: 900px) 100vw, 33vw"
+              className={styles.bentoImg}
+            />
+          </div>
         </div>
       </section>
 
@@ -513,8 +607,12 @@ export default function Home() {
                 >
                   {/* Top image box with overlay actions */}
                   <div className={styles.cardImageContainer}>
-                    <div className={styles.jarVisualContainer} onClick={() => setSelectedProduct(product)}>
-                      <ProductJar color={product.color} labelName={product.name} />
+                    <div className={styles.jarVisualContainer}>
+                      <ProductCardImageSlider 
+                        images={product.images} 
+                        alt={product.displayName} 
+                        onClick={() => setSelectedProduct(product)} 
+                      />
                     </div>
                     
                     <button 
@@ -783,19 +881,25 @@ export default function Home() {
             
             <div className={styles.modalGrid}>
               <div className={styles.modalLeft}>
-                <div style={{ width: "100%", height: "240px" }}>
-                  <ProductJar color={selectedProduct.color} labelName={selectedProduct.name} />
-                </div>
-                <div className={styles.modalNutritionBox}>
-                  <h4>Nutritional Profile (per 5g serving)</h4>
-                  <ul>
-                    {Object.entries(selectedProduct.nutrition).map(([key, val]) => (
-                      <li key={key}>
-                        <span>{key}</span>
-                        <strong>{val}</strong>
-                      </li>
-                    ))}
-                  </ul>
+                <div className={styles.modalHalfHalfContainer}>
+                  <div className={styles.modalHalfItem}>
+                    <Image 
+                      src={selectedProduct.images ? selectedProduct.images[0] : "/10.webp"} 
+                      alt={`${selectedProduct.name} View 1`} 
+                      fill 
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className={styles.modalHalfImg} 
+                    />
+                  </div>
+                  <div className={styles.modalHalfItem}>
+                    <Image 
+                      src={selectedProduct.images ? selectedProduct.images[1] : "/11.webp"} 
+                      alt={`${selectedProduct.name} View 2`} 
+                      fill 
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className={styles.modalHalfImg} 
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -818,6 +922,18 @@ export default function Home() {
                   <ul>
                     {selectedProduct.benefits.map((benefit, i) => (
                       <li key={i}>{benefit}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                                <div className={styles.modalNutritionBox}>
+                  <h4>Nutritional Profile (per 5g serving)</h4>
+                  <ul>
+                    {Object.entries(selectedProduct.nutrition).map(([key, val]) => (
+                      <li key={key}>
+                        <span>{key}</span>
+                        <strong>{val}</strong>
+                      </li>
                     ))}
                   </ul>
                 </div>
