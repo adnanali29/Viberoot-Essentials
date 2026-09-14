@@ -1,6 +1,7 @@
 export const PRODUCTS = [
   {
     id: "raspberry",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHNWY8MG",
     name: "Organic Raspberry Powder",
     displayName: "Raspberry Powder",
     images: ["/10.webp", "/11.webp", "/12.webp"],
@@ -35,6 +36,7 @@ export const PRODUCTS = [
   },
   {
     id: "pineapple",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHXD2P1J",
     name: "Organic Pineapple Fruit Juice Powder",
     displayName: "Pineapple Fruit Juice Powder",
     images: ["/13.webp", "/14.webp", "/15.webp"],
@@ -69,6 +71,7 @@ export const PRODUCTS = [
   },
   {
     id: "beetroot",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHXN6MG7",
     name: "Organic Beetroot Powder",
     displayName: "Beetroot Powder",
     images: ["/16.webp", "/17.webp", "/18.webp"],
@@ -103,6 +106,7 @@ export const PRODUCTS = [
   },
   {
     id: "ginger",
+    amazonUrl: "https://www.amazon.ca/s?k=viberoot+organic+ginger+powder",
     name: "Organic Ginger Root Powder",
     displayName: "Ginger Root Powder",
     images: ["/19.webp", "/20.webp", "/21.webp"],
@@ -137,6 +141,7 @@ export const PRODUCTS = [
   },
   {
     id: "wheatgrass",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHY25VNZ",
     name: "Organic Wheat Grass Powder",
     displayName: "Wheat Grass Powder",
     images: ["/23.webp", "/24.webp", "/25.webp"],

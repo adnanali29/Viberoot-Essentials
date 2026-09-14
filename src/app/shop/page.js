@@ -160,9 +160,15 @@ export default function ShopPage() {
                     <span className={styles.price}>C$ {product.prices["250g"].toFixed(2)}</span>
                     <span className={styles.originalPrice}>C$ {product.originalPrices["250g"].toFixed(2)}</span>
                   </div>
-                  <button className={styles.addBtn} onClick={(e) => { e.stopPropagation(); addToCart(product); }}>
-                    Add to Cart
-                  </button>
+                  <a 
+                    href={product.amazonUrl || "https://www.amazon.ca"} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={styles.addBtn} 
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Buy Now
+                  </a>
                 </div>
               </div>
             </div>
@@ -222,9 +228,15 @@ export default function ShopPage() {
                     <span className={styles.price} style={{ fontSize: "1.4rem" }}>C$ {selected.prices["250g"].toFixed(2)}</span>
                     <span className={styles.originalPrice}>C$ {selected.originalPrices["250g"].toFixed(2)}</span>
                   </div>
-                  <button className={styles.addBtn} style={{ padding: "12px 28px", fontSize: "0.95rem" }} onClick={() => { addToCart(selected); setSelected(null); }}>
-                    Add to Cart
-                  </button>
+                  <a 
+                    href={selected.amazonUrl || "https://www.amazon.ca"} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={styles.addBtn} 
+                    style={{ padding: "12px 28px", fontSize: "0.95rem", textDecoration: "none", textAlign: "center", display: "inline-block" }}
+                  >
+                    Buy Now
+                  </a>
                 </div>
               </div>
             </div>

@@ -51,6 +51,7 @@
 .price { font-size: 1.1rem; font-weight: 800; color: #1b4332; }
 .originalPrice { font-size: 0.78rem; color: #aaa; text-decoration: line-through; }
 .addBtn {
+  display: inline-block; text-decoration: none; text-align: center;
   background: #f0af02; color: #1c2a21; font-size: 0.82rem; font-weight: 700;
   padding: 9px 18px; border-radius: 50px; border: none; cursor: pointer;
   transition: background 0.2s, transform 0.15s;

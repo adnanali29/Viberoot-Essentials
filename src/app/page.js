@@ -7,6 +7,7 @@ import styles from "./page.module.css";
 const PRODUCTS = [
   {
     id: "raspberry",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHNWY8MG",
     name: "Organic Raspberry Powder",
     displayName: "Raspberry Powder",
     images: ["/10.webp", "/11.webp", "/12.webp"],
@@ -34,6 +35,7 @@ const PRODUCTS = [
   },
   {
     id: "pineapple",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHXD2P1J",
     name: "Organic Pineapple Fruit Juice Powder",
     displayName: "Pineapple Fruit Juice Powder",
     images: ["/13.webp", "/14.webp", "/15.webp"],
@@ -61,6 +63,7 @@ const PRODUCTS = [
   },
   {
     id: "beetroot",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHXN6MG7",
     name: "Organic Beetroot Powder",
     displayName: "Beetroot Powder",
     images: ["/16.webp", "/17.webp", "/18.webp"],
@@ -88,6 +91,7 @@ const PRODUCTS = [
   },
   {
     id: "ginger",
+    amazonUrl: "https://www.amazon.ca/s?k=viberoot+organic+ginger+powder",
     name: "Organic Ginger Root Powder",
     displayName: "Ginger Root Powder",
     images: ["/19.webp", "/20.webp", "/21.webp"],
@@ -115,6 +119,7 @@ const PRODUCTS = [
   },
   {
     id: "wheatgrass",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHY25VNZ",
     name: "Organic Wheat Grass Powder",
     displayName: "Wheat Grass Powder",
     images: ["/23.webp", "/24.webp", "/25.webp"],
@@ -141,6 +146,87 @@ const PRODUCTS = [
     }
   }
 ];
+
+const PROMISE_VIDEOS = [
+  "/videos/video2.mp4",
+  "/videos/video1.mp4",
+  "/videos/video5.mp4",
+  "/videos/video4.mp4",
+  "/videos/video3.mp4"
+];
+
+function PromiseVideoCard() {
+  const [currentVideoIdx, setCurrentVideoIdx] = useState(0);
+  const videoRef = useRef(null);
+
+  const handleVideoEnded = () => {
+    setCurrentVideoIdx((prev) => (prev + 1) % PROMISE_VIDEOS.length);
+  };
+
+  useEffect(() => {
+    const videoEl = videoRef.current;
+    if (videoEl) {
+      videoEl.muted = true;
+      videoEl.defaultMuted = true;
+      videoEl.load();
+      const playPromise = videoEl.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          const handleUserInteraction = () => {
+            if (videoEl) {
+              videoEl.muted = true;
+              videoEl.play();
+            }
+          };
+          window.addEventListener("touchstart", handleUserInteraction, { once: true });
+          window.addEventListener("click", handleUserInteraction, { once: true });
+        });
+      }
+    }
+  }, [currentVideoIdx]);
+
+  return (
+    <section id="product-videos" className={styles.promiseVideoSection}>
+      <div className={styles.productVideosHeader}>
+        <span className={styles.productVideosOverline}>SEE OUR ORGANIC PROCESS 🍃</span>
+        <h2 className={styles.productVideosTitle}>PRODUCT VIDEOS 🎥</h2>
+      </div>
+      <div 
+        className={styles.videoPlayerContainer}
+        onClick={() => {
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            videoRef.current.play();
+          }
+        }}
+      >
+        <video 
+          key={PROMISE_VIDEOS[currentVideoIdx]}
+          ref={videoRef}
+          src={PROMISE_VIDEOS[currentVideoIdx]}
+          autoPlay 
+          muted 
+          playsInline
+          preload="auto"
+          onEnded={handleVideoEnded}
+          className={styles.purityVideo}
+        >
+          <source src={PROMISE_VIDEOS[currentVideoIdx]} type="video/mp4" />
+        </video>
+        <div className={styles.videoDotsContainer} onClick={(e) => e.stopPropagation()}>
+          {PROMISE_VIDEOS.map((_, idx) => (
+            <button
+              key={idx}
+              className={`${styles.videoDot} ${currentVideoIdx === idx ? styles.videoDotActive : ""}`}
+              onClick={() => setCurrentVideoIdx(idx)}
+              aria-label={`Play Video ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const HERO_SLIDES = [
   { id: 1, image: "/1.webp", title: "VibeRoot Banner 1" },
@@ -659,12 +745,15 @@ export default function Home() {
                         <span className={styles.originalPrice}>From C$ {product.originalPrices["250g"].toFixed(2)}</span>
                       </div>
 
-                      <button 
+                      <a 
+                        href={product.amazonUrl || "https://www.amazon.ca"}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={styles.cardAddToCartBtn}
-                        onClick={() => addToCart(product, "250g")}
+                        style={{ textDecoration: "none", display: "inline-block", textAlign: "center" }}
                       >
-                        Add to cart
-                      </button>
+                        Buy Now
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -674,31 +763,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Widescreen Purity Video Pledge Section (Replaces VibeRoot Promise text) */}
-      <section id="promise-video" className={styles.promiseVideoSection}>
-        <div className={styles.videoPlayerContainer}>
-          <video 
-            src="https://assets.mixkit.co/videos/preview/mixkit-slow-motion-of-falling-fresh-herbs-in-water-41223-large.mp4"
-            poster="/hero_banner.jpg"
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            className={styles.purityVideo}
-          />
-          <div className={styles.videoGlassOverlay}>
-            <span className={styles.videoOverline}>OUR PLEDGE TO PURITY</span>
-            <h2 className={styles.videoTitle}>The VibeRoot Promise</h2>
-            <p className={styles.videoSubtitle}>
-              Every green blade, berry, and root is harvested organically, dehydrated at low temperatures, and packaged pure.
-            </p>
-            <div className={styles.videoPlayIndicator}>
-              <span className={styles.playIcon}>▶</span>
-              <span className={styles.playText}>WATCH HARVEST CYCLE</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 5. Product Videos Section (Plays 5 videos endlessly right after Best Sellers) */}
+      <PromiseVideoCard />
 
       {/* 6. Recipes Section */}
       <section id="recipes" className={styles.recipesSection}>
@@ -788,25 +854,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. Newsletter Subscription Banner */}
-      <section className={styles.newsletterBanner}>
-        <div className={styles.newsletterInner}>
-          <div className={styles.newsletterLeft}>
-            <div className={styles.newsletterIconWrapper}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            </div>
-            <div className={styles.newsletterTextBlock}>
-              <h3>Join the VibeRoot Family</h3>
-              <p>Get exclusive offers, wellness tips and new recipe ideas straight to your inbox.</p>
-            </div>
-          </div>
 
-          <form className={styles.newsletterForm} onSubmit={(e) => { e.preventDefault(); alert("Successfully subscribed!"); }}>
-            <input type="email" placeholder="Enter your email address" required aria-label="Subscription email field" />
-            <button type="submit">SUBSCRIBE</button>
-          </form>
-        </div>
-      </section>
 
       {/* 11. Sliding Cart Drawer */}
       {isCartOpen && (
@@ -939,15 +987,15 @@ export default function Home() {
                 </div>
 
                 <div className={styles.modalActions}>
-                  <button 
+                  <a 
+                    href={selectedProduct.amazonUrl || "https://www.amazon.ca"}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={styles.modalAddBtn}
-                    onClick={() => {
-                      addToCart(selectedProduct, "250g");
-                      setSelectedProduct(null);
-                    }}
+                    style={{ textDecoration: "none", display: "inline-block", textAlign: "center" }}
                   >
-                    Add 250g Pouch to Cart
-                  </button>
+                    Buy Now
+                  </a>
                 </div>
               </div>
             </div>
