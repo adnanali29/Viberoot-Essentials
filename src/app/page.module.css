@@ -2149,8 +2149,9 @@
 
 /* Bento Grid Gut Science Section ("Your gut knows so does science") */
 .gutScienceSection {
+  background-color: #ffffff !important;
   background-color: #ffffff;
-  background-color: #faf6ee;
+  background-color: #ffffff;
   padding: 80px 24px;
   width: 100%;
 }
@@ -2185,6 +2186,7 @@
 
 /* 3-Column Bento Grid Container */
 .gutScienceSection {
+  background-color: #ffffff !important;
   max-width: 1080px;
   margin: 0 auto;
   padding: 32px 20px;
@@ -2353,6 +2355,7 @@
 
 @media (max-width: 900px) {
   .gutScienceSection {
+  background-color: #ffffff !important;
     padding: 36px 12px;
     overflow-x: hidden;
     width: 100%;
