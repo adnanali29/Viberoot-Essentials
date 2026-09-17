@@ -3189,3 +3189,117 @@
     width: 100%;
   }
 }
+
+@media (max-width: 600px) {
+  .gutScienceSection {
+    background-color: #ffffff !important;
+    padding: 24px 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .bentoGrid {
+    display: grid !important;
+    grid-template-columns: 1.1fr 1fr 1fr !important;
+    grid-template-rows: auto auto auto !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .bentoCardTextBrown {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    padding: 10px 8px !important;
+    border-radius: 12px !important;
+    min-height: 85px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .bentoCardTextGold {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    padding: 10px 8px !important;
+    border-radius: 12px !important;
+    min-height: 85px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .bentoCardTallPink {
+    grid-column: 3 !important;
+    grid-row: 1 / span 2 !important;
+    min-height: 180px !important;
+    height: 180px !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .bentoCardBlue {
+    grid-column: 1 !important;
+    grid-row: 2 / span 2 !important;
+    min-height: 180px !important;
+    height: 180px !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .bentoCardBrownImg {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    min-height: 85px !important;
+    height: 85px !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .bentoCardTextPink {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    padding: 10px 8px !important;
+    border-radius: 12px !important;
+    min-height: 85px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .bentoCardTextGreen {
+    grid-column: 3 !important;
+    grid-row: 3 !important;
+    padding: 10px 8px !important;
+    border-radius: 12px !important;
+    min-height: 85px !important;
+    text-align: right !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .bentoCardTextBrown h3,
+  .bentoCardTextGold h3,
+  .bentoCardTextPink h3,
+  .bentoCardTextGreen h3 {
+    font-size: 0.65rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 3px !important;
+    font-weight: 800 !important;
+  }
+
+  .bentoCardTextBrown p,
+  .bentoCardTextGold p,
+  .bentoCardTextPink p,
+  .bentoCardTextGreen p {
+    font-size: 0.48rem !important;
+    line-height: 1.25 !important;
+    opacity: 0.95 !important;
+  }
+}

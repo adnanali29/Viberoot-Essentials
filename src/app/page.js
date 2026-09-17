@@ -952,14 +952,11 @@ export default function Home() {
               const recipeImage = prod.recipe.image || "/recipe_raspberry_rose.webp";
 
               return (
-                <div 
+                <a 
                   key={prod.id} 
+                  href={`/recipes?product=${prod.id}`}
                   className={styles.recipeCard} 
-                  onClick={() => {
-                    setActiveTheme(prod);
-                    setSelectedRecipe({ recipe: prod.recipe, product: prod });
-                  }}
-                  style={{ "--recipe-accent": prod.color }}
+                  style={{ textDecoration: "none", color: "inherit", "--recipe-accent": prod.color }}
                 >
                   <div className={styles.recipeCardImageContainer}>
                     <Image 
@@ -981,12 +978,12 @@ export default function Home() {
                     <h4 className={styles.recipeCardTitle}>{prod.recipe.title}</h4>
                     <div className={styles.recipeCardFooter}>
                       <span className={styles.recipeCardDifficulty}>Easy</span>
-                      <button className={styles.recipeCircleArrowBtn} aria-label="View Recipe">
+                      <span className={styles.recipeCircleArrowBtn}>
                         →
-                      </button>
+                      </span>
                     </div>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { PRODUCTS } from "@/lib/products";
 import styles from "./recipes.module.css";
@@ -12,6 +12,17 @@ const RECIPES = PRODUCTS.flatMap((p) => [
 export default function RecipesPage() {
   const [selected, setSelected] = useState(null);
   const [filter, setFilter] = useState("All");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get("product");
+      if (productId) {
+        const match = RECIPES.find((r) => r.product.id === productId);
+        if (match) setSelected(match);
+      }
+    }
+  }, []);
 
   const categories = ["All", ...Array.from(new Set(PRODUCTS.map((p) => p.healthGoals[0])))];
   const filtered = filter === "All" ? RECIPES : RECIPES.filter((r) => r.product.healthGoals.includes(filter));
