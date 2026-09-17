@@ -1,7 +1,7 @@
-.page { min-height: 100vh; background: #faf8f5; }
+.page { min-height: 100vh; background: #ffffff; }
 .hero { position: relative; height: 340px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .heroBg { position: absolute; inset: 0; background: linear-gradient(135deg, #113629 0%, #1c4e3b 60%, #0d261c 100%); }
-.heroContent { position: relative; text-align: center; color: #faf8f5; padding: 0 24px; }
+.heroContent { position: relative; text-align: center; color: #ffffff; padding: 0 24px; }
 .heroOverline { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; color: #c49a45; display: block; margin-bottom: 12px; }
 .heroTitle { font-family: var(--font-serif, Georgia, serif); font-size: 2.5rem; font-weight: 800; margin-bottom: 12px; }
 .heroSubtitle { font-size: 1rem; color: rgba(250,248,245,0.75); max-width: 480px; margin: 0 auto; line-height: 1.6; }
@@ -26,7 +26,7 @@
 .label { display: block; font-size: 0.78rem; font-weight: 700; color: #1b2b22; margin-bottom: 6px; letter-spacing: 0.03em; }
 .input, .select, .textarea {
   width: 100%; padding: 11px 14px; font-size: 0.88rem; border-radius: 10px;
-  border: 1.5px solid #e0dfdb; background: #faf8f5; color: #1c1c1a;
+  border: 1.5px solid #e0dfdb; background: #ffffff; color: #1c1c1a;
   outline: none; transition: border-color 0.2s; box-sizing: border-box; font-family: inherit;
 }
 .input:focus, .select:focus, .textarea:focus { border-color: #1b4332; background: #fff; }

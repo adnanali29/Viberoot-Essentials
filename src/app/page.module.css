@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #faf8f5;
+  background-color: #ffffff;
   color: #1c2a21;
   position: relative;
 }
@@ -162,7 +162,7 @@
 }
 
 .actionBtn:hover, .cartBtn:hover {
-  background-color: #f5f2eb;
+  background-color: #ffffff;
 }
 
 .cartBtn {
@@ -208,7 +208,7 @@
   height: 80vh;
   overflow: hidden;
   border-bottom: 1px solid #f0f0ee;
-  background-color: #f0ebe2;
+  background-color: #ffffff;
 }
 
 .slidesWrapper {
@@ -612,7 +612,7 @@
 }
 
 .capsuleTag {
-  background-color: #f5f2eb;
+  background-color: #ffffff;
   border: 1.5px solid #e0dfdb;
   color: #555552;
   border-radius: 50px;
@@ -700,7 +700,7 @@
 }
 
 .ingredientBoxItem {
-  background-color: #faf8f5;
+  background-color: #ffffff;
   border: 1px solid #e0dfdb;
   border-radius: 4px;
   padding: 6px 2px;
@@ -1024,7 +1024,7 @@
 
 /* 7. Customer Testimonials Section */
 .testimonialsSection {
-  background-color: #faf8f5;
+  background-color: #ffffff;
   border-top: 1px solid #f0f0ee;
   border-bottom: 1px solid #f0f0ee;
   padding: 100px 24px;
@@ -1142,7 +1142,7 @@
 }
 
 .treasureCard {
-  background-color: #faf8f5;
+  background-color: #ffffff;
   border: 1px solid #e0dfdb;
   border-radius: 8px;
   padding: 40px 32px;
@@ -1564,7 +1564,7 @@
 
 .shippingNoticeInfo {
   font-size: 0.8rem;
-  background-color: #faf8f5;
+  background-color: #ffffff;
   padding: 8px 12px;
   border-radius: 2px;
   display: block;
@@ -1656,7 +1656,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #faf8f5;
+  background: #ffffff;
   transition: var(--transition-fast);
 }
 
@@ -1675,7 +1675,7 @@
   border: 1px solid #f0f0ee;
   border-radius: 2px;
   padding: 20px;
-  background-color: #faf8f5;
+  background-color: #ffffff;
   margin-top: 24px;
 }
 
@@ -1891,7 +1891,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background-color: #faf8f5;
+  background-color: #ffffff;
 }
 
 .msgBot, .msgUser {
@@ -2067,7 +2067,7 @@
   max-height: calc(100dvh - 84px);
   overflow: hidden;
   border-bottom: 1px solid #f0f0ee;
-  background-color: #faf8f5;
+  background-color: #ffffff;
 }
 
 .carouselArrow {
@@ -2149,6 +2149,7 @@
 
 /* Bento Grid Gut Science Section ("Your gut knows so does science") */
 .gutScienceSection {
+  background-color: #ffffff;
   background-color: #faf6ee;
   padding: 80px 24px;
   width: 100%;
@@ -2462,7 +2463,7 @@
   overflow: hidden;
   border-radius: 16px 16px 0 0;
   cursor: pointer;
-  background-color: #faf8f5;
+  background-color: #ffffff;
 }
 
 .cardSliderTrack {

@@ -1,4 +1,4 @@
-.page { min-height: 100vh; background: #faf8f5; }
+.page { min-height: 100vh; background: #ffffff; }
 
 .toast {
   position: fixed; top: 90px; right: 24px; z-index: 999;
@@ -13,7 +13,7 @@
   position: absolute; inset: 0;
   background: radial-gradient(circle at 50% 30%, #2a6f4e 0%, #15382a 60%, #0a1f16 100%);
 }
-.heroContent { position: relative; text-align: center; color: #faf8f5; padding: 0 24px; }
+.heroContent { position: relative; text-align: center; color: #ffffff; padding: 0 24px; }
 .heroOverline { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; color: #c49a45; display: block; margin-bottom: 12px; }
 .heroTitle { font-family: var(--font-serif, Georgia, serif); font-size: 3rem; font-weight: 800; margin-bottom: 12px; }
 .heroSubtitle { font-size: 1rem; color: rgba(250,248,245,0.75); max-width: 480px; margin: 0 auto; line-height: 1.6; }
@@ -122,7 +122,7 @@
   overflow: hidden;
   border-radius: 16px 16px 0 0;
   cursor: pointer;
-  background-color: #faf8f5;
+  background-color: #ffffff;
 }
 
 .cardSliderTrack {

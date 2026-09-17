@@ -223,11 +223,7 @@ function PromiseVideoCard() {
           className={styles.purityVideo}
         />
 
-        {/* Video Title Banner */}
-        <div className={styles.videoTitleBanner}>
-          <span className={styles.videoStepTag}>Step {currentVideoIdx + 1} of 5</span>
-          <h3 className={styles.videoStepTitle}>{PROMISE_VIDEOS[currentVideoIdx].title}</h3>
-        </div>
+
 
         {/* Manual Slide Arrow Buttons */}
         <button 
