@@ -2353,116 +2353,60 @@
   transform: scale(1.05);
 }
 
+
 @media (max-width: 900px) {
   .gutScienceSection {
-  background-color: #ffffff !important;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 88px 24px;
-  box-sizing: border-box;
-}
+    background-color: #ffffff !important;
+    padding: 40px 16px;
+    overflow-x: hidden;
+  }
   
   .bentoGrid {
-  max-width: 1140px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto;
-  gap: 22px;
-}
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    max-width: 100% !important;
+  }
 
   .bentoCardTextBrown,
   .bentoCardTextGold,
   .bentoCardTextPink,
   .bentoCardTextGreen {
-  grid-column: 3;
-  grid-row: 3;
-  background-color: #24492b;
-  color: #ffffff;
-  padding: 38px 32px;
-  border-radius: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 195px;
-  text-align: right;
-}
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 28px 22px !important;
+    border-radius: 20px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
 
   .bentoCardTextBrown h3,
   .bentoCardTextGold h3,
   .bentoCardTextPink h3,
   .bentoCardTextGreen h3 {
-    font-size: 0.8rem !important;
-    margin-bottom: 6px !important;
-    line-height: 1.15 !important;
+    font-size: 1.3rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
   }
 
   .bentoCardTextBrown p,
   .bentoCardTextGold p,
   .bentoCardTextPink p,
   .bentoCardTextGreen p {
-    font-size: 0.62rem !important;
-    line-height: 1.3 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    opacity: 0.95 !important;
   }
 
-  .bentoCardTallPink {
-  grid-column: 3;
-  grid-row: 1 / span 2;
-  position: relative;
-  border-radius: 28px;
-  min-height: 420px;
-  overflow: hidden;
-}
-
-  .bentoCardBlue {
-  grid-column: 1;
-  grid-row: 2 / span 2;
-  position: relative;
-  border-radius: 28px;
-  min-height: 420px;
-  overflow: hidden;
-}
-
+  .bentoCardTallPink,
+  .bentoCardBlue,
   .bentoCardBrownImg {
-  grid-column: 2;
-  grid-row: 2;
-  position: relative;
-  border-radius: 28px;
-  min-height: 205px;
-  overflow: hidden;
-}
-
-  .bentoCardTextPink {
-  grid-column: 2;
-  grid-row: 3;
-  background-color: #f45b69;
-  color: #ffffff;
-  padding: 38px 32px;
-  border-radius: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 195px;
-  text-align: center;
-}
-
-  .bentoCardTextGreen {
-  grid-column: 3;
-  grid-row: 3;
-  background-color: #24492b;
-  color: #ffffff;
-  padding: 38px 32px;
-  border-radius: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 195px;
-  text-align: right;
-}
-
-  .gutScienceTitleSingleLine {
-    font-size: 1.25rem !important;
-    text-align: center !important;
+    width: 100% !important;
+    height: 220px !important;
+    min-height: 220px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    position: relative !important;
   }
 }
 
@@ -3056,4 +3000,192 @@
 .testimonialDate {
   font-size: 0.75rem;
   color: #888885;
+}
+
+
+/* Recipe Modal Popup Styles */
+.recipeModal {
+  background: #ffffff;
+  border-radius: 24px;
+  max-width: 580px;
+  width: 92%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+  animation: modalFadeUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.recipeModalHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 28px;
+  background: #f9fbf9;
+  border-bottom: 1px solid rgba(27, 67, 50, 0.08);
+  border-radius: 24px 24px 0 0;
+}
+
+.recipeModalImgWrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.recipeModalHeaderText {
+  flex: 1;
+}
+
+.recipeModalPill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #1b4332;
+  background: rgba(27, 67, 50, 0.08);
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.recipeModalTitle {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1b2b22;
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.recipeModalMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.recipeModalBody {
+  padding: 24px 28px 28px;
+}
+
+.recipeModalSection {
+  margin-bottom: 22px;
+}
+
+.recipeModalSecTitle {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #1b4332;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.ingredientsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ingredientItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.ingredientDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.stepsText {
+  font-size: 0.88rem;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+.recipeModalFooterCta {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(27, 67, 50, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.recipeFooterProductInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipeFooterPowderLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1b4332;
+}
+
+.recipeFooterPrice {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1b2b22;
+}
+
+.recipeBuyNowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 4px 14px rgba(27, 67, 50, 0.2);
+}
+
+.recipeBuyNowBtn:hover {
+  background: #c49a45;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .recipeModalHeader {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .recipeModalImgWrap {
+    width: 90px;
+    height: 90px;
+  }
+  .recipeModalFooterCta {
+    flex-direction: column;
+    text-align: center;
+  }
+  .recipeBuyNowBtn {
+    width: 100%;
+  }
 }

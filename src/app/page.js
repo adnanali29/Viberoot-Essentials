@@ -536,6 +536,7 @@ function ProductCardImageSlider({ images, alt, onClick }) {
 export default function Home() {
   const [activeTheme, setActiveTheme] = useState(PRODUCTS[0]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const [scrolled, setScrolled] = useState(false);
@@ -943,7 +944,7 @@ export default function Home() {
           <div className={styles.recipesLeftIntro}>
             <span className={styles.recipesOverline}>HEALTHY & DELICIOUS 🍃</span>
             <h2 className={styles.recipesMainTitle}>Recipes To <br />Inspire You</h2>
-            <button className={styles.viewAllRecipesBtn}>VIEW ALL RECIPES</button>
+            <a href="/recipes" className={styles.viewAllRecipesBtn} style={{ textDecoration: "none", display: "inline-block" }}>VIEW ALL RECIPES &rarr;</a>
           </div>
 
           <div className={styles.recipesRowList}>
@@ -956,7 +957,7 @@ export default function Home() {
                   className={styles.recipeCard} 
                   onClick={() => {
                     setActiveTheme(prod);
-                    setSelectedProduct(prod);
+                    setSelectedRecipe({ recipe: prod.recipe, product: prod });
                   }}
                   style={{ "--recipe-accent": prod.color }}
                 >
@@ -1189,6 +1190,71 @@ export default function Home() {
                     Buy Now
                   </a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      
+      {/* Recipe Details Modal Popup */}
+      {selectedRecipe && (
+        <div className={styles.modalOverlay} onClick={() => setSelectedRecipe(null)}>
+          <div className={styles.recipeModal} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.modalCloseBtn} onClick={() => setSelectedRecipe(null)}>✕</button>
+
+            <div className={styles.recipeModalHeader}>
+              <div className={styles.recipeModalImgWrap}>
+                <Image 
+                  src={selectedRecipe.recipe.image || "/recipe_raspberry_rose.webp"} 
+                  alt={selectedRecipe.recipe.title}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className={styles.recipeModalHeaderText}>
+                <span className={styles.recipeModalPill}>🌿 Chef-Curated Recipe</span>
+                <h3 className={styles.recipeModalTitle}>{selectedRecipe.recipe.title}</h3>
+                <div className={styles.recipeModalMeta}>
+                  <span>⏱️ Prep: {selectedRecipe.recipe.time}</span>
+                  <span>&bull;</span>
+                  <span>⚡ Difficulty: Easy</span>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.recipeModalBody}>
+              <div className={styles.recipeModalSection}>
+                <h4 className={styles.recipeModalSecTitle}>INGREDIENTS</h4>
+                <ul className={styles.ingredientsList}>
+                  {selectedRecipe.recipe.ingredients.map((ing, i) => (
+                    <li key={i} className={styles.ingredientItem}>
+                      <span className={styles.ingredientDot} style={{ background: selectedRecipe.product.color }} />
+                      <span>{ing}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className={styles.recipeModalSection}>
+                <h4 className={styles.recipeModalSecTitle}>PREPARATION STEPS</h4>
+                <p className={styles.stepsText}>{selectedRecipe.recipe.steps}</p>
+              </div>
+
+              {/* Buy Now CTA inside Recipe Details Modal */}
+              <div className={styles.recipeModalFooterCta}>
+                <div className={styles.recipeFooterProductInfo}>
+                  <span className={styles.recipeFooterPowderLabel}>Made with {selectedRecipe.product.displayName}</span>
+                  <span className={styles.recipeFooterPrice}>C$ {selectedRecipe.product.prices["250g"].toFixed(2)}</span>
+                </div>
+                <a
+                  href={selectedRecipe.product.amazonUrl || "https://www.amazon.ca"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.recipeBuyNowBtn}
+                >
+                  Buy {selectedRecipe.product.displayName.split(" ")[0]} Powder &rarr;
+                </a>
               </div>
             </div>
           </div>
