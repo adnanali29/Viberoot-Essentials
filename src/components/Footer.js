@@ -51,7 +51,7 @@ export default function Footer() {
         {/* Contact & WhatsApp */}
         <div className={styles.footerCol}>
           <h4 className={styles.footerColTitle}>Get In Touch</h4>
-          <p className={styles.footerContactItem}>📍 Toronto, Ontario, Canada</p>
+          <p className={styles.footerContactItem}>📍 Address / Adresse : VibeRoot Essentials T3P2H4 Calgary, Alberta Canada</p>
           <p className={styles.footerContactItem}>📧 hello@viberoot.ca</p>
           <p className={styles.footerContactItem}>📞 +1 (416) 555-0190</p>
           <a
@@ -78,7 +78,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerBottom}>
-        <p>© 2026 VibeRoot Essentials Inc. — Toronto, Ontario, Canada. All rights reserved.</p>
+        <p>© 2026 VibeRoot Essentials Inc. — Address / Adresse : VibeRoot Essentials T3P2H4 Calgary, Alberta Canada. All rights reserved.</p>
         <div className={styles.footerBottomLinks}>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>

@@ -19,9 +19,11 @@ export default function ContactPage() {
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroContent}>
-          <span className={styles.heroOverline}>📬 GET IN TOUCH</span>
-          <h1 className={styles.heroTitle}>Contact Us</h1>
-          <p className={styles.heroSubtitle}>We're a real team of people who care about your wellness journey. Reach out — we'd love to hear from you.</p>
+          <div className={styles.heroStatusPill}>
+            <span className={styles.statusDot}>🟢</span> Support Team Active • Calgary, AB
+          </div>
+          <h1 className={styles.heroTitle}>We're Here to Help You</h1>
+          <p className={styles.heroSubtitle}>Have questions about our organic superfood powders, order status, or wholesale partnerships? Send us a message below.</p>
         </div>
       </section>
 
@@ -33,7 +35,7 @@ export default function ContactPage() {
             <p className={styles.infoBody}>Whether you have a question about our products, need help with your order, or want to explore wholesale opportunities — we're here.</p>
 
             {[
-              { icon: "📍", label: "Address", value: "123 Wellness Ave, Toronto, Ontario, M5V 1A1" },
+              { icon: "📍", label: "Address / Adresse", value: "Address / Adresse : VibeRoot Essentials T3P2H4 Calgary, Alberta Canada" },
               { icon: "📧", label: "Email", value: "hello@viberoot.ca" },
               { icon: "📞", label: "Phone", value: "+1 (416) 555-0190" },
               { icon: "🕐", label: "Hours", value: "Mon–Fri: 9am–6pm EST" },

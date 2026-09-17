@@ -5,12 +5,12 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 const PRODUCTS = [
-  {
+{
     id: "raspberry",
     amazonUrl: "https://www.amazon.ca/dp/B0HHNWY8MG",
     name: "Organic Raspberry Powder",
     displayName: "Raspberry Powder",
-    images: ["/10.webp", "/11.webp", "/12.webp"],
+    images: ["/10.webp", "/product_card_rasp.webp", "/11.webp", "/12.webp"],
     prices: { "125g": 14.99, "250g": 24.99, "500g": 44.99 },
     originalPrices: { "125g": 17.59, "250g": 29.39, "500g": 52.89 },
     color: "#e4053a",
@@ -27,18 +27,19 @@ const PRODUCTS = [
     pairing: "Perfect paired with oat milk, vanilla protein, or blended into coconut yogurt.",
     ingredientBoxes: ["🍓 100% Fruit", "🛡️ Antioxidant", "✨ Collagen Boost"],
     recipe: {
-      title: "Raspberry Smoothie",
+      title: "Raspberry Rose Smoothie Bowl",
+      image: "/recipe_raspberry_rose.webp",
       time: "5 Min",
       ingredients: ["1 tbsp Raspberry Powder", "1 cup frozen mixed berries", "1 frozen banana", "1/2 cup almond milk"],
       steps: "Blend all base ingredients until thick and creamy. Pour into a glass and serve fresh."
     }
   },
-  {
+{
     id: "pineapple",
     amazonUrl: "https://www.amazon.ca/dp/B0HHXD2P1J",
     name: "Organic Pineapple Fruit Juice Powder",
     displayName: "Pineapple Fruit Juice Powder",
-    images: ["/13.webp", "/14.webp", "/15.webp"],
+    images: ["/13.webp", "/product_card_pine.webp", "/14.webp", "/15.webp"],
     prices: { "125g": 16.99, "250g": 27.99, "500g": 49.99 },
     originalPrices: { "125g": 19.99, "250g": 32.99, "500g": 58.89 },
     color: "#f0af02",
@@ -56,45 +57,18 @@ const PRODUCTS = [
     ingredientBoxes: ["🍍 Active Enzyme", "⚡ Energy Boost", "🥬 Easy Digestion"],
     recipe: {
       title: "Tropical Pineapple Detox",
+      image: "/recipe_pineapple_detox.webp",
       time: "5 Min",
       ingredients: ["1 tbsp Pineapple Powder", "1 cup chilled coconut water", "1/2 inch fresh ginger", "Squeeze of lime juice"],
       steps: "Combine all ingredients in a blender or shaker. Blend until smooth. Serve over ice."
     }
   },
-  {
-    id: "beetroot",
-    amazonUrl: "https://www.amazon.ca/dp/B0HHXN6MG7",
-    name: "Organic Beetroot Powder",
-    displayName: "Beetroot Powder",
-    images: ["/16.webp", "/17.webp", "/18.webp"],
-    prices: { "125g": 12.99, "250g": 20.99, "500g": 36.99 },
-    originalPrices: { "125g": 15.29, "250g": 24.99, "500g": 43.49 },
-    color: "#9b2e36",
-    lightColor: "rgba(155, 46, 54, 0.05)",
-    hoverColor: "#7c2228",
-    tagline: "Pure circulation and stamina booster from premium organic beets.",
-    description: "A favorite among athletes and wellness enthusiasts. Viberoot Organic Beetroot Powder is loaded with dietary nitrates that help optimize blood circulation, lower blood pressure, and boost natural athletic performance. Its earthy, sweet profile adds depth and vitality to pre-workouts and morning elixirs.",
-    benefits: ["Optimizes Blood Flow", "Enhances Athletic Stamina", "Natural Nitric Oxide Booster"],
-    healthGoals: ["Energy", "Detox"],
-    rating: 4.9,
-    reviews: 410,
-    nutrition: { Calories: "35 kcal", Nitrates: "High Activity", Iron: "8% DV", Folate: "12% DV" },
-    ingredients: "100% Certified Organic Dehydrated Beetroot Powder.",
-    pairing: "Blends well with raw cacao, ginger, or in warm almond milk lattes.",
-    ingredientBoxes: ["🩸 High Nitrates", "💪 Stamina Boost", "❤️ Heart Health"],
-    recipe: {
-      title: "Beetroot Energy Booster",
-      time: "5 Min",
-      ingredients: ["1 tbsp Beetroot Powder", "1 cup plant milk (warm or cold)", "1 tsp raw honey or maple syrup", "1/4 tsp cinnamon"],
-      steps: "Whisk or blend all ingredients together until frothy. Perfect as a pre-workout drink."
-    }
-  },
-  {
+{
     id: "ginger",
     amazonUrl: "https://www.amazon.ca/s?k=viberoot+organic+ginger+powder",
     name: "Organic Ginger Root Powder",
     displayName: "Ginger Root Powder",
-    images: ["/19.webp", "/20.webp", "/21.webp"],
+    images: ["/19.webp", "/product_card_ginger.webp", "/20.webp", "/21.webp"],
     prices: { "125g": 12.99, "250g": 20.99, "500g": 36.99 },
     originalPrices: { "125g": 15.29, "250g": 24.99, "500g": 43.49 },
     color: "#b46e31",
@@ -111,18 +85,48 @@ const PRODUCTS = [
     pairing: "Perfect with honey, lemon, hot water, or blended with pineapple.",
     ingredientBoxes: ["🔥 Bio-Gingerols", "🤢 Anti-Nausea", "🛡️ Gut Support"],
     recipe: {
-      title: "Ginger Immunity Shot",
+      title: "Golden Ginger Immunity Shot",
+      image: "/recipe_ginger_immunity.webp",
       time: "5 Min",
       ingredients: ["1 tsp Ginger Powder", "1 lemon (juiced)", "1/2 cup warm water", "1/2 tsp maple syrup"],
       steps: "Mix all ingredients together in a glass. Drink immediately in the morning for a warming boost."
     }
   },
-  {
+{
+    id: "beetroot",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHXN6MG7",
+    name: "Organic Beetroot Powder",
+    displayName: "Beetroot Powder",
+    images: ["/16.webp", "/product_card_beetroot.webp", "/17.webp", "/18.webp"],
+    prices: { "125g": 12.99, "250g": 20.99, "500g": 36.99 },
+    originalPrices: { "125g": 15.29, "250g": 24.99, "500g": 43.49 },
+    color: "#9b2e36",
+    lightColor: "rgba(155, 46, 54, 0.05)",
+    hoverColor: "#7c2228",
+    tagline: "Pure circulation and stamina booster from premium organic beets.",
+    description: "A favorite among athletes and wellness enthusiasts. Viberoot Organic Beetroot Powder is loaded with dietary nitrates that help optimize blood circulation, lower blood pressure, and boost natural athletic performance. Its earthy, sweet profile adds depth and vitality to pre-workouts and morning elixirs.",
+    benefits: ["Optimizes Blood Flow", "Enhances Athletic Stamina", "Natural Nitric Oxide Booster"],
+    healthGoals: ["Energy", "Detox"],
+    rating: 4.9,
+    reviews: 410,
+    nutrition: { Calories: "35 kcal", Nitrates: "High Activity", Iron: "8% DV", Folate: "12% DV" },
+    ingredients: "100% Certified Organic Dehydrated Beetroot Powder.",
+    pairing: "Blends well with raw cacao, ginger, or in warm almond milk lattes.",
+    ingredientBoxes: ["🩸 High Nitrates", "💪 Stamina Boost", "❤️ Heart Health"],
+    recipe: {
+      title: "Beetroot Pre-Workout Latte",
+      image: "/recipe_beetroot_latte.webp",
+      time: "5 Min",
+      ingredients: ["1 tbsp Beetroot Powder", "1 cup plant milk (warm or cold)", "1 tsp raw honey or maple syrup", "1/4 tsp cinnamon"],
+      steps: "Whisk or blend all ingredients together until frothy. Perfect as a pre-workout drink."
+    }
+  },
+{
     id: "wheatgrass",
     amazonUrl: "https://www.amazon.ca/dp/B0HHY25VNZ",
     name: "Organic Wheat Grass Powder",
     displayName: "Wheat Grass Powder",
-    images: ["/23.webp", "/24.webp", "/25.webp"],
+    images: ["/23.webp", "/product_card_wheat.webp", "/24.webp", "/25.webp"],
     prices: { "125g": 13.49, "250g": 21.99, "500g": 38.99 },
     originalPrices: { "125g": 15.99, "250g": 25.99, "500g": 45.89 },
     color: "#465034",
@@ -140,6 +144,7 @@ const PRODUCTS = [
     ingredientBoxes: ["🌿 Chlorophyll", "🧪 Alkalizer", "🧹 Daily Detox"],
     recipe: {
       title: "Wheatgrass Morning Shot",
+      image: "/recipe_wheatgrass_shot.webp",
       time: "5 Min",
       ingredients: ["1 tbsp Wheat Grass Powder", "1 cup fresh apple juice", "1/2 cucumber (sliced)", "Squeeze of fresh lemon"],
       steps: "Blend the cucumber with apple juice and wheat grass powder. Strain and squeeze fresh lemon over top."
@@ -148,19 +153,37 @@ const PRODUCTS = [
 ];
 
 const PROMISE_VIDEOS = [
-  "/videos/video2.mp4",
-  "/videos/video1.mp4",
-  "/videos/video5.mp4",
-  "/videos/video4.mp4",
-  "/videos/video3.mp4"
+  { src: "/videos/video2.mp4", title: "Organic Berries & Fruit Sourcing" },
+  { src: "/videos/video1.mp4", title: "Cold-Press Low-Temp Processing" },
+  { src: "/videos/video5.mp4", title: "Third-Party Purity & Heavy Metal Testing" },
+  { src: "/videos/video4.mp4", title: "Eco-Friendly Small Batching in Canada" },
+  { src: "/videos/video3.mp4", title: "Pure Superfood Elixirs & Smoothies" }
 ];
 
 function PromiseVideoCard() {
   const [currentVideoIdx, setCurrentVideoIdx] = useState(0);
   const videoRef = useRef(null);
+  const touchStartX = useRef(0);
 
-  const handleVideoEnded = () => {
+  const prevVideo = () => {
+    setCurrentVideoIdx((prev) => (prev - 1 + PROMISE_VIDEOS.length) % PROMISE_VIDEOS.length);
+  };
+
+  const nextVideo = () => {
     setCurrentVideoIdx((prev) => (prev + 1) % PROMISE_VIDEOS.length);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (diff > 40) {
+      nextVideo();
+    } else if (diff < -40) {
+      prevVideo();
+    }
   };
 
   useEffect(() => {
@@ -171,16 +194,7 @@ function PromiseVideoCard() {
       videoEl.load();
       const playPromise = videoEl.play();
       if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          const handleUserInteraction = () => {
-            if (videoEl) {
-              videoEl.muted = true;
-              videoEl.play();
-            }
-          };
-          window.addEventListener("touchstart", handleUserInteraction, { once: true });
-          window.addEventListener("click", handleUserInteraction, { once: true });
-        });
+        playPromise.catch(() => {});
       }
     }
   }, [currentVideoIdx]);
@@ -191,35 +205,54 @@ function PromiseVideoCard() {
         <span className={styles.productVideosOverline}>SEE OUR ORGANIC PROCESS 🍃</span>
         <h2 className={styles.productVideosTitle}>PRODUCT VIDEOS 🎥</h2>
       </div>
+
       <div 
         className={styles.videoPlayerContainer}
-        onClick={() => {
-          if (videoRef.current) {
-            videoRef.current.muted = true;
-            videoRef.current.play();
-          }
-        }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         <video 
-          key={PROMISE_VIDEOS[currentVideoIdx]}
+          key={PROMISE_VIDEOS[currentVideoIdx].src}
           ref={videoRef}
-          src={PROMISE_VIDEOS[currentVideoIdx]}
+          src={PROMISE_VIDEOS[currentVideoIdx].src}
           autoPlay 
           muted 
+          loop
           playsInline
           preload="auto"
-          onEnded={handleVideoEnded}
           className={styles.purityVideo}
+        />
+
+        {/* Video Title Banner */}
+        <div className={styles.videoTitleBanner}>
+          <span className={styles.videoStepTag}>Step {currentVideoIdx + 1} of 5</span>
+          <h3 className={styles.videoStepTitle}>{PROMISE_VIDEOS[currentVideoIdx].title}</h3>
+        </div>
+
+        {/* Manual Slide Arrow Buttons */}
+        <button 
+          className={`${styles.videoNavBtn} ${styles.videoNavBtnPrev}`}
+          onClick={prevVideo}
+          aria-label="Previous Video"
         >
-          <source src={PROMISE_VIDEOS[currentVideoIdx]} type="video/mp4" />
-        </video>
-        <div className={styles.videoDotsContainer} onClick={(e) => e.stopPropagation()}>
+          ‹
+        </button>
+        <button 
+          className={`${styles.videoNavBtn} ${styles.videoNavBtnNext}`}
+          onClick={nextVideo}
+          aria-label="Next Video"
+        >
+          ›
+        </button>
+
+        {/* Manual Slide Dots */}
+        <div className={styles.videoDotsContainer}>
           {PROMISE_VIDEOS.map((_, idx) => (
             <button
               key={idx}
               className={`${styles.videoDot} ${currentVideoIdx === idx ? styles.videoDotActive : ""}`}
               onClick={() => setCurrentVideoIdx(idx)}
-              aria-label={`Play Video ${idx + 1}`}
+              aria-label={`Go to Video ${idx + 1}`}
             />
           ))}
         </div>
@@ -227,6 +260,15 @@ function PromiseVideoCard() {
     </section>
   );
 }
+
+
+const renderStars = (rating) => {
+  if (rating === 5) return "★ ★ ★ ★ ★";
+  if (rating === 4.5) return "★ ★ ★ ★ ½";
+  if (rating === 4) return "★ ★ ★ ★ ☆";
+  if (rating === 3.5) return "★ ★ ★ ½ ☆";
+  return "★ ★ ★ ★ ★";
+};
 
 const HERO_SLIDES = [
   { id: 1, image: "/1.webp", title: "VibeRoot Banner 1" },
@@ -237,29 +279,140 @@ const HERO_SLIDES = [
 ];
 
 const TESTIMONIALS = [
+  // 3.5 Stars (3 Testimonials)
   {
     id: 1,
-    name: "Genevieve L.",
-    location: "Vancouver, BC",
-    rating: 5,
-    quote: "The Wheat Grass powder is incredibly vibrant and clean. I take a shot every single morning and my bloating is completely gone. 100% recommended!",
-    date: "Aug 20, 2026"
+    name: "Marcus Vance",
+    location: "Seattle, WA",
+    rating: 3.5,
+    quote: "Good quality organic beetroot powder. The taste is quite earthy as expected from real beets, but it blends fine in my pre-workout shaker with orange juice.",
+    date: "Aug 28, 2026"
   },
   {
     id: 2,
-    name: "Marcus K.",
-    location: "Toronto, ON",
-    rating: 5,
-    quote: "I use the Beetroot powder as my pre-workout. The nitric oxide blood flow is real! Plus, the packaging and shipping was super fast via Canada Post.",
-    date: "Aug 12, 2026"
+    name: "Heather Bennett",
+    location: "Calgary, AB",
+    rating: 3.5,
+    quote: "The raspberry powder adds a nice tart flavour to my morning oats. Slightly fine powder so handle carefully when scooping, but overall very clean product.",
+    date: "Aug 14, 2026"
   },
   {
     id: 3,
-    name: "Sophia M.",
+    name: "Derek Miller",
+    location: "Chicago, IL",
+    rating: 3.5,
+    quote: "Decent ginger root powder with a noticeable spicy kick. Dissolves best in warm tea rather than cold water, but good value for organic certification.",
+    date: "Aug 02, 2026"
+  },
+
+  // 4.0 Stars (3 Testimonials)
+  {
+    id: 4,
+    name: "Amanda Rodriguez",
+    location: "Vancouver, BC",
+    rating: 4.0,
+    quote: "Loved the pineapple juice powder! Super convenient for smoothies and has active bromelain enzymes. Shipping to BC took 3 days.",
+    date: "Sep 02, 2026"
+  },
+  {
+    id: 5,
+    name: "Tyler Hayes",
+    location: "Denver, CO",
+    rating: 4.0,
+    quote: "Been taking the wheatgrass powder daily before my morning runs. Great alkalizing green boost, though I prefer mixing it with apple juice.",
+    date: "Aug 20, 2026"
+  },
+  {
+    id: 6,
+    name: "Sophie Tremblay",
     location: "Montreal, QC",
-    rating: 5,
-    quote: "Absolutely in love with the Freeze-Dried Raspberry powder. It brings a fresh, tart sweetness to my protein shakes with zero added sugars. Exceptional purity!",
-    date: "Aug 05, 2026"
+    rating: 4.0,
+    quote: "Very fresh beetroot powder. You can tell it is high grade from the deep crimson color. Mixes well into almond milk lattes.",
+    date: "Jul 30, 2026"
+  },
+
+  // 4.5 Stars (4 Testimonials)
+  {
+    id: 7,
+    name: "Ethan Reynolds",
+    location: "Toronto, ON",
+    rating: 4.5,
+    quote: "Impressive quality! No clumpiness and no filler ingredients. The organic raspberry powder is now a staple in our home protein bowls.",
+    date: "Sep 10, 2026"
+  },
+  {
+    id: 8,
+    name: "Clara Sterling",
+    location: "Austin, TX",
+    rating: 4.5,
+    quote: "Fantastic ginger powder for warming immunity drinks. It gives a genuine zesty burn that clears your sinuses in the morning. Will reorder!",
+    date: "Sep 05, 2026"
+  },
+  {
+    id: 9,
+    name: "Liam O'Connor",
+    location: "Halifax, NS",
+    rating: 4.5,
+    quote: "Fast Canadian shipping and excellent resealable packaging. The pineapple powder tastes remarkably fresh like actual fruit.",
+    date: "Aug 25, 2026"
+  },
+  {
+    id: 10,
+    name: "Natalie Brooks",
+    location: "Boston, MA",
+    rating: 4.5,
+    quote: "Clean, organic, and lab-tested. Noticed a subtle improvement in workout recovery after 2 weeks on the beetroot powder.",
+    date: "Aug 08, 2026"
+  },
+
+  // 5.0 Stars (6 Testimonials)
+  {
+    id: 11,
+    name: "Jessica MacLeod",
+    location: "Victoria, BC",
+    rating: 5.0,
+    quote: "The best superfood powders in Canada! Pure ingredients with zero added sugar. The raspberry flavor is unreal in coconut yogurt.",
+    date: "Sep 14, 2026"
+  },
+  {
+    id: 12,
+    name: "David Kovacs",
+    location: "New York, NY",
+    rating: 5.0,
+    quote: "10/10 quality. You can taste the purity right away. I add 1 scoop of ginger and pineapple to my daily green juice. Exceptional!",
+    date: "Sep 12, 2026"
+  },
+  {
+    id: 13,
+    name: "Sarah Jenkins",
+    location: "Ottawa, ON",
+    rating: 5.0,
+    quote: "Obsessed with Viberoot! The wheatgrass is bright green and so energizing. My morning digestive routine has never felt better.",
+    date: "Sep 08, 2026"
+  },
+  {
+    id: 14,
+    name: "Ryan Gallagher",
+    location: "Portland, OR",
+    rating: 5.0,
+    quote: "Top tier organic powders! The beetroot gives me sustained stamina during my cycling sessions without any energy jitters.",
+    date: "Sep 01, 2026"
+  },
+  {
+    id: 15,
+    name: "Chloe Dubois",
+    location: "Quebec City, QC",
+    rating: 5.0,
+    quote: "Super fast delivery and eco-conscious brand. Every scoop feels like pure nourishment. Highly recommend to anyone seeking real food nutrition!",
+    date: "Aug 22, 2026"
+  },
+  {
+    id: 16,
+    name: "Brandon Cole",
+    location: "Minneapolis, MN",
+    rating: 5.0,
+    quote: "Stuck with Viberoot after trying multiple brands. Pristine quality, zero pesticides, and customer support was wonderful. A lifetime customer here!",
+    date: "Aug 18, 2026"
   }
 ];
 
@@ -277,7 +430,7 @@ const TREASURES = [
   {
     id: 3,
     title: "Eco-Conscious Canadian Craftsmanship",
-    desc: "Packaged locally in Toronto, ON, inside clean, biodegradable pouches. We ensure every batch is triple tested in third-party labs, bringing safety reports to your table."
+    desc: "Packaged locally in Calgary, AB (Address / Adresse : VibeRoot Essentials T3P2H4 Calgary, Alberta Canada), inside clean, biodegradable pouches. We ensure every batch is triple tested in third-party labs, bringing safety reports to your table."
   }
 ];
 
@@ -345,7 +498,7 @@ function ProductCardImageSlider({ images, alt, onClick }) {
     if (!images || images.length === 0) return;
     const timer = setInterval(() => {
       setCurrentIdx((prev) => (prev + 1) % images.length);
-    }, 4000);
+    }, 2500);
     return () => clearInterval(timer);
   }, [images]);
 
@@ -393,6 +546,51 @@ export default function Home() {
   
   // Carousel and layout states
   const [activeSlide, setActiveSlide] = useState(0);
+  const sliderViewportRef = useRef(null);
+
+  useEffect(() => {
+    const slider = sliderViewportRef.current;
+    if (!slider) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const onMouseDown = (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    };
+
+    const onMouseLeave = () => {
+      isDown = false;
+    };
+
+    const onMouseUp = () => {
+      isDown = false;
+    };
+
+    const onMouseMove = (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      slider.scrollLeft = scrollLeft - walk;
+    };
+
+    slider.addEventListener("mousedown", onMouseDown);
+    slider.addEventListener("mouseleave", onMouseLeave);
+    slider.addEventListener("mouseup", onMouseUp);
+    slider.addEventListener("mousemove", onMouseMove);
+
+    return () => {
+      slider.removeEventListener("mousedown", onMouseDown);
+      slider.removeEventListener("mouseleave", onMouseLeave);
+      slider.removeEventListener("mouseup", onMouseUp);
+      slider.removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
+
   const [catalogIndex, setCatalogIndex] = useState(0); // Shows 3 at a time (max index: PRODUCTS.length - 3)
   const [cardSizes, setCardSizes] = useState({
     raspberry: "250g",
@@ -481,14 +679,16 @@ export default function Home() {
   };
 
   const slideCatalog = (direction) => {
-    const maxIndex = PRODUCTS.length - 4;
-    setCatalogIndex((prev) => {
+    if (sliderViewportRef.current) {
+      const container = sliderViewportRef.current;
+      const card = container.querySelector('.' + styles.productCard);
+      const scrollAmount = card ? card.offsetWidth + 16 : 300;
       if (direction === "next") {
-        return Math.min(prev + 1, maxIndex);
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
       } else {
-        return Math.max(prev - 1, 0);
+        container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       }
-    });
+    }
   };
 
   // Mock chat submit
@@ -584,39 +784,39 @@ export default function Home() {
             <p>No additives. No shortcuts. Just real ingredients, straight from nature.</p>
           </div>
 
-          {/* Top Middle Card 2 (Golden Amber) */}
+          {/* Top Middle Card 2 (Golden Amber - Center Aligned) */}
           <div className={styles.bentoCardTextGold}>
             <h3>Real food, no compromises</h3>
             <p>Nothing artificial. Nothing hidden. Just clean, honest powders.</p>
           </div>
 
-          {/* Right Tall Card 3 (Raspberry Coral Pink) */}
+          {/* Right Tall Card 3 (Card Pine Image) */}
           <div className={styles.bentoCardTallPink}>
             <Image 
-              src="/bento_raspberry_hand.jpg" 
-              alt="Hand holding VibeRoot Organic Raspberry Powder"
+              src="/card_pine.webp" 
+              alt="VibeRoot Organic Pineapple Superfood Powder"
               fill
               sizes="(max-width: 900px) 100vw, 33vw"
               className={styles.bentoImg}
             />
           </div>
 
-          {/* Middle Left Card 4 (Sky Blue) */}
+          {/* Middle Left Card 4 (Card Rasp Image) */}
           <div className={styles.bentoCardBlue}>
             <Image 
-              src="/bento_powders_sky.jpg" 
-              alt="Hands holding organic superfood powders up against the blue sky"
+              src="/card_rasp.webp" 
+              alt="VibeRoot Organic Raspberry Superfood Powder"
               fill
               sizes="(max-width: 900px) 100vw, 33vw"
               className={styles.bentoImg}
             />
           </div>
 
-          {/* Middle Center Card 5 (Floating Superfoods Chocolate) */}
+          {/* Middle Center Card 5 (Card 2 Image) */}
           <div className={styles.bentoCardBrownImg}>
             <Image 
-              src="/bento_floating_powders.jpg" 
-              alt="Dynamic floating organic superfood pouches and ingredients"
+              src="/card_2_image.webp" 
+              alt="VibeRoot Organic Superfoods Collection"
               fill
               sizes="(max-width: 900px) 100vw, 33vw"
               className={styles.bentoImg}
@@ -629,15 +829,10 @@ export default function Home() {
             <p>100% organic. Nothing added. Just the real thing, every scoop.</p>
           </div>
 
-          {/* Bottom Right Card 7 (Pouches Flatlay) */}
-          <div className={styles.bentoCardFlatlay}>
-            <Image 
-              src="/bento_flatlay_pouches.jpg" 
-              alt="Aesthetic flatlay of VibeRoot organic superfood drink pouches"
-              fill
-              sizes="(max-width: 900px) 100vw, 33vw"
-              className={styles.bentoImg}
-            />
+          {/* Bottom Right Card 7 (Green Text Card - Right Aligned) */}
+          <div className={styles.bentoCardTextGreen}>
+            <h3>Simplicity you can taste</h3>
+            <p>No extras. No compromises. Just pure, clean nutrition in every scoop.</p>
           </div>
         </div>
       </section>
@@ -649,32 +844,12 @@ export default function Home() {
             <h2>BEST SELLERS 🍃</h2>
           </div>
           
-          <div className={styles.catalogControls}>
-            <button 
-              className={styles.catalogArrowBtn} 
-              onClick={() => slideCatalog("prev")}
-              disabled={catalogIndex === 0}
-              aria-label="Slide Previous"
-            >
-              ←
-            </button>
-            <button 
-              className={styles.catalogArrowBtn} 
-              onClick={() => slideCatalog("next")}
-              disabled={catalogIndex >= PRODUCTS.length - 4}
-              aria-label="Slide Next"
-            >
-              →
-            </button>
-          </div>
+          
         </div>
 
-        {/* 4 Cards Slider Viewport */}
-        <div className={styles.sliderViewport}>
-          <div 
-            className={styles.sliderTrack} 
-            style={{ transform: `translateX(-${catalogIndex * 25}%)` }}
-          >
+        {/* 5 Cards Slider Viewport */}
+        <div className={styles.sliderViewport} ref={sliderViewportRef}>
+          <div className={styles.sliderTrack}>
             {PRODUCTS.map((product) => {
               const currentSize = cardSizes[product.id] || "250g";
               const currentPrice = product.prices[currentSize];
@@ -776,32 +951,47 @@ export default function Home() {
           </div>
 
           <div className={styles.recipesRowList}>
-            {PRODUCTS.slice(0, 4).map((prod) => (
-              <div key={prod.id} className={styles.recipeCard} onClick={() => {
-                setActiveTheme(prod);
-                setSelectedProduct(prod);
-              }}>
-                <div className={styles.recipeCardImageContainer}>
-                  <Image 
-                    src={prod.id === "wheatgrass" ? "/recipe_wheatgrass.jpg" : "/hero_banner.jpg"}
-                    alt={prod.recipe.title}
-                    fill
-                    sizes="(max-width: 600px) 100vw, 25vw"
-                    className={styles.recipeCardImg}
-                  />
-                </div>
-                <div className={styles.recipeCardContent}>
-                  <span className={styles.recipeDrinkTag}>DRINK ›</span>
-                  <h4 className={styles.recipeCardTitle}>{prod.recipe.title}</h4>
-                  <div className={styles.recipeCardFooter}>
-                    <span className={styles.recipeCardTime}>{prod.recipe.time}</span>
-                    <button className={styles.recipeCircleArrowBtn} aria-label="View Recipe">
-                      →
-                    </button>
+            {PRODUCTS.slice(0, 4).map((prod) => {
+              const recipeImage = prod.recipe.image || "/recipe_raspberry_rose.webp";
+
+              return (
+                <div 
+                  key={prod.id} 
+                  className={styles.recipeCard} 
+                  onClick={() => {
+                    setActiveTheme(prod);
+                    setSelectedProduct(prod);
+                  }}
+                  style={{ "--recipe-accent": prod.color }}
+                >
+                  <div className={styles.recipeCardImageContainer}>
+                    <Image 
+                      src={recipeImage}
+                      alt={prod.recipe.title}
+                      fill
+                      sizes="(max-width: 600px) 100vw, 25vw"
+                      className={styles.recipeCardImg}
+                    />
+                    <div className={styles.recipeCardOverlayTag}>
+                      <span>{prod.displayName.split(" ")[0]}</span>
+                    </div>
+                  </div>
+                  <div className={styles.recipeCardContent}>
+                    <div className={styles.recipeCardHeaderRow}>
+                      <span className={styles.recipeDrinkTag}>DRINK</span>
+                      <span className={styles.recipeCardTimePill}>⏱️ {prod.recipe.time}</span>
+                    </div>
+                    <h4 className={styles.recipeCardTitle}>{prod.recipe.title}</h4>
+                    <div className={styles.recipeCardFooter}>
+                      <span className={styles.recipeCardDifficulty}>Easy</span>
+                      <button className={styles.recipeCircleArrowBtn} aria-label="View Recipe">
+                        →
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -809,27 +999,33 @@ export default function Home() {
       {/* 7. Customer Testimonials Section ("Here's What Our Customers Have To Say About Us") */}
       <section id="testimonials" className={styles.testimonialsSection}>
         <div className={styles.sectionHeaderCentered}>
-          <span className={styles.sectionOverline}>OUR COMMUNITY</span>
+          <span className={styles.sectionOverline}>OUR COMMUNITY 🍁 🇺🇸</span>
           <h2 className={styles.sectionTitle}>Here's What Our Customers Have To Say About Us</h2>
           <p className={styles.sectionSubtitle}>
-            Read honest feedback from wellness advocates across Canada who have made our powders their daily ritual.
+            Read honest feedback from wellness advocates across Canada & USA who have made our powders their daily ritual.
           </p>
         </div>
 
-        <div className={styles.testimonialsGrid}>
-          {TESTIMONIALS.map((test) => (
-            <div key={test.id} className={styles.testimonialCard}>
-              <div className={styles.testimonialHeader}>
-                <span className={styles.testimonialStars}>★ ★ ★ ★ ★</span>
-                <span className={styles.testimonialDate}>{test.date}</span>
+        {/* Continuous Auto-Sliding Endless Marquee Track */}
+        <div className={styles.testimonialsMarqueeContainer}>
+          <div className={styles.testimonialsMarqueeTrack}>
+            {[...TESTIMONIALS, ...TESTIMONIALS].map((test, index) => (
+              <div key={index} className={styles.testimonialCard}>
+                <div className={styles.testimonialHeader}>
+                  <span className={styles.testimonialStars}>{renderStars(test.rating)}</span>
+                  <span className={styles.testimonialRatingBadge}>{test.rating.toFixed(1)} ★</span>
+                </div>
+                <p className={styles.testimonialQuote}>"{test.quote}"</p>
+                <div className={styles.testimonialAuthorFooter}>
+                  <div className={styles.testimonialAuthorBlock}>
+                    <span className={styles.authorName}>{test.name}</span>
+                    <span className={styles.authorLocation}>📍 {test.location}</span>
+                  </div>
+                  <span className={styles.testimonialDate}>{test.date}</span>
+                </div>
               </div>
-              <p className={styles.testimonialQuote}>"{test.quote}"</p>
-              <div className={styles.testimonialAuthorBlock}>
-                <span className={styles.authorName}>{test.name}</span>
-                <span className={styles.authorLocation}>{test.location}</span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

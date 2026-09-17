@@ -1,6 +1,6 @@
 .page { min-height: 100vh; background: #faf8f5; }
-.hero { position: relative; height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.heroBg { position: absolute; inset: 0; background: linear-gradient(135deg, #1b2b22 0%, #2d5016 60%, #1b4332 100%); }
+.hero { position: relative; height: 340px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.heroBg { position: absolute; inset: 0; background: linear-gradient(135deg, #10261c 0%, #1a4231 60%, #265942 100%); }
 .heroContent { position: relative; text-align: center; color: #faf8f5; padding: 0 24px; }
 .heroOverline { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; color: #c49a45; display: block; margin-bottom: 12px; }
 .heroTitle { font-family: var(--font-serif, Georgia, serif); font-size: 2.8rem; font-weight: 800; margin-bottom: 12px; }
@@ -47,3 +47,8 @@
   .inner { grid-template-columns: 1fr; }
   .fieldRow { grid-template-columns: 1fr; }
 }
+
+.heroBadgeGrid { display: flex; gap: 12px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
+.heroBadgeGrid span { font-size: 0.78rem; font-weight: 700; background: rgba(0, 0, 0, 0.35); backdrop-filter: blur(10px); padding: 7px 16px; border-radius: 20px; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.15); }
+
+

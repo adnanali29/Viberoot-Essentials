@@ -2,7 +2,7 @@ import styles from "./about.module.css";
 
 export const metadata = {
   title: "About VibeRoot Essentials | Our Story",
-  description: "Learn about VibeRoot Essentials — Canada's premium organic superfood powder brand, grown with purpose and packed with purity in Toronto, ON.",
+  description: "Learn about VibeRoot Essentials — Canada's premium organic superfood powder brand, grown with purpose and packed with purity in Calgary, AB.",
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
         <div className={styles.heroContent}>
           <span className={styles.heroOverline}>🌱 OUR STORY</span>
           <h1 className={styles.heroTitle}>About VibeRoot Essentials</h1>
-          <p className={styles.heroSubtitle}>Born in Toronto. Rooted in nature. Built for the Canadian wellness generation.</p>
+          <p className={styles.heroSubtitle}>Born in Calgary, AB. Rooted in nature. Built for the Canadian wellness generation.</p>
         </div>
       </section>
 
@@ -33,19 +33,40 @@ export default function AboutPage() {
       {/* Mission */}
       <section className={styles.mission}>
         <div className={styles.missionInner}>
-          <div className={styles.missionText}>
-            <span className={styles.overline}>OUR MISSION</span>
-            <h2 className={styles.missionTitle}>We Believe Food is Medicine</h2>
-            <p className={styles.missionBody}>
-              VibeRoot Essentials was founded with a single conviction: that every Canadian deserves access to pure, potent, and affordable organic superfoods — without the greenwashing, without the fillers, and without compromise.
-            </p>
-            <p className={styles.missionBody}>
-              We partner directly with certified organic farms to source our five flagship powders at peak harvest, then cold-press and dehydrate them below 40°C to lock in enzymes, vitamins, and bioactive compounds that heat-processing destroys.
-            </p>
-            <p className={styles.missionBody}>
-              Every single batch is third-party lab tested for heavy metals, pesticide residue, and microbial safety — and those results are available to you, our customers, upon request. That's not just transparency. That's VibeRoot.
-            </p>
+          <div className={styles.sectionHeader}>
+            <span className={styles.overline}>OUR GUIDING PRINCIPLES</span>
+            <h2 className={styles.missionTitle}>Mission & Vision</h2>
+            <p className={styles.missionSubtext}>Building Canada's most trusted organic superfood movement with purpose and purity.</p>
           </div>
+
+          <div className={styles.mvCardsGrid}>
+            <div className={styles.mvCard}>
+              <div className={styles.mvCardHeader}>
+                <span className={styles.mvIcon}>🎯</span>
+                <div>
+                  <span className={styles.mvCategory}>CATEGORY 1</span>
+                  <h3 className={styles.mvCardTitle}>Our Mission</h3>
+                </div>
+              </div>
+              <p className={styles.mvCardBody}>
+                To empower every Canadian with pure, potent, cold-pressed organic superfoods — uncompromised quality, zero synthetic additives or fillers, transparently lab-tested, and harvested at peak potency to make daily organic wellness effortless and accessible.
+              </p>
+            </div>
+
+            <div className={styles.mvCard}>
+              <div className={styles.mvCardHeader}>
+                <span className={styles.mvIcon}>👁️</span>
+                <div>
+                  <span className={styles.mvCategory}>CATEGORY 2</span>
+                  <h3 className={styles.mvCardTitle}>Our Vision</h3>
+                </div>
+              </div>
+              <p className={styles.mvCardBody}>
+                To build Canada's most trusted organic superfood movement — pioneering sustainable, farm-to-table nutrition that inspires healthier communities across North America while protecting our planet with eco-conscious, zero-waste practices.
+              </p>
+            </div>
+          </div>
+
           <div className={styles.missionStats}>
             {[
               { num: "5", label: "Organic Powders" },
@@ -71,7 +92,7 @@ export default function AboutPage() {
               { icon: "🌿", title: "100% Organic Certified", desc: "All products carry full Canadian Organic Regime (COR) certification, traceable to the farm." },
               { icon: "🧪", title: "Triple Lab Tested", desc: "Every batch undergoes independent testing for heavy metals, pesticides, and microbial safety." },
               { icon: "❄️", title: "Cold-Pressed Preservation", desc: "Below 40°C processing preserves enzymes, vitamins, and bioactive compounds that heat destroys." },
-              { icon: "🇨🇦", title: "Canadian Owned & Operated", desc: "Headquartered and packaged in Toronto, Ontario. Proud to serve the Canadian wellness community." },
+              { icon: "🇨🇦", title: "Canadian Owned & Operated", desc: "Headquartered and packaged in Calgary, Alberta. Address / Adresse : VibeRoot Essentials T3P2H4 Calgary, Alberta Canada. Proud to serve the Canadian wellness community." },
               { icon: "♻️", title: "Eco-Conscious Packaging", desc: "Biodegradable, compostable pouches. We're committed to reducing our ecological footprint." },
               { icon: "💬", title: "Real Human Support", desc: "A real Canadian wellness expert, not a bot, answers your questions via WhatsApp and email." },
             ].map((v) => (

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { PRODUCTS } from "@/lib/products";
 import styles from "./recipes.module.css";
 
@@ -23,7 +24,7 @@ export default function RecipesPage() {
         <div className={styles.heroContent}>
           <span className={styles.heroOverline}>🍃 ORGANIC RECIPES</span>
           <h1 className={styles.heroTitle}>Nourish Your Body<br />One Recipe at a Time</h1>
-          <p className={styles.heroSubtitle}>10 chef-curated wellness recipes using our 5 organic powder superfoods.</p>
+          <p className={styles.disclaimerNote}>NOTE: All dish images are for illustration purposes only. Final dish appearance may vary from person to person.</p>
         </div>
       </section>
 
@@ -50,13 +51,23 @@ export default function RecipesPage() {
               onClick={() => setSelected(recipe)}
               style={{ "--card-color": recipe.product.color }}
             >
-              <div className={styles.cardImage} style={{ background: `linear-gradient(135deg, ${recipe.product.lightColor} 0%, #f0f5ef 100%)` }}>
-                <div className={styles.recipeEmoji}>
-                  {recipe.product.id === "raspberry" ? "🍓" :
-                   recipe.product.id === "pineapple" ? "🍍" :
-                   recipe.product.id === "beetroot" ? "🫀" :
-                   recipe.product.id === "ginger" ? "🫚" : "🌿"}
-                </div>
+              <div className={styles.cardImage}>
+                {recipe.image ? (
+                  <Image 
+                    src={recipe.image}
+                    alt={recipe.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className={styles.cardImgTag}
+                  />
+                ) : (
+                  <div className={styles.recipeEmoji}>
+                    {recipe.product.id === "raspberry" ? "🍓" :
+                     recipe.product.id === "pineapple" ? "🍍" :
+                     recipe.product.id === "beetroot" ? "🫀" :
+                     recipe.product.id === "ginger" ? "🫚" : "🌿"}
+                  </div>
+                )}
                 <div className={styles.timeBadge}>⏱ {recipe.time}</div>
               </div>
               <div className={styles.cardBody}>
@@ -100,6 +111,17 @@ export default function RecipesPage() {
               </div>
             </div>
             <div className={styles.modalBody}>
+              {selected.image && (
+                <div className={styles.modalImageWrap}>
+                  <Image 
+                    src={selected.image} 
+                    alt={selected.title} 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    className={styles.modalImgTag} 
+                  />
+                </div>
+              )}
               <div className={styles.modalSection}>
                 <h3 className={styles.modalSectionTitle}>Ingredients</h3>
                 <ul className={styles.ingredientsList}>

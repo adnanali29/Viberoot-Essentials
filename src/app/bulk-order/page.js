@@ -84,7 +84,7 @@ export default function BulkOrderPage() {
 
                 <div className={styles.field}>
                   <label className={styles.label}>Shipping Address *</label>
-                  <input className={styles.input} type="text" name="address" placeholder="123 Main St, Toronto, ON, M5V 1A1" value={form.address} onChange={handle} required />
+                  <input className={styles.input} type="text" name="address" placeholder="Address / Adresse : VibeRoot Essentials T3P2H4 Calgary, Alberta Canada" value={form.address} onChange={handle} required />
                 </div>
 
                 <div className={styles.fieldRow}>

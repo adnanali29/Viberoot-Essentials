@@ -53,7 +53,7 @@ function ProductCardImageSlider({ images, alt, onClick }) {
     if (!images || images.length === 0) return;
     const timer = setInterval(() => {
       setCurrentIdx((prev) => (prev + 1) % images.length);
-    }, 4000);
+    }, 2500);
     return () => clearInterval(timer);
   }, [images]);
 
@@ -119,9 +119,13 @@ export default function ShopPage() {
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroContent}>
-          <span className={styles.heroOverline}>🌿 CERTIFIED ORGANIC • LAB TESTED</span>
+          <div className={styles.heroPillsRow}>
+            <span className={styles.heroPill}>🌿 USDA Organic</span>
+            <span className={styles.heroPill}>🧪 Triple Lab Tested</span>
+            <span className={styles.heroPill}>🇨🇦 Packaged in Calgary, AB</span>
+          </div>
           <h1 className={styles.heroTitle}>Shop All Products</h1>
-          <p className={styles.heroSubtitle}>Pure organic superfoods, cold-pressed and triple tested — delivered across Canada.</p>
+          <p className={styles.heroSubtitle}>Pure organic superfoods, cold-pressed and triple tested — delivered straight to your door across Canada.</p>
         </div>
       </section>
 
@@ -246,7 +250,7 @@ export default function ShopPage() {
 
       {/* Trust Bar */}
       <section className={styles.trustBar}>
-        {["🌿 USDA Certified Organic", "🧪 Triple Lab Tested", "🚚 Free Shipping C$45+", "🇨🇦 Packaged in Toronto, ON", "↩️ 30-Day Returns"].map((item) => (
+        {["🌿 USDA Certified Organic", "🧪 Triple Lab Tested", "🚚 Free Shipping C$45+", "🇨🇦 Packaged in Calgary, AB", "↩️ 30-Day Returns"].map((item) => (
           <div key={item} className={styles.trustItem}>{item}</div>
         ))}
       </section>

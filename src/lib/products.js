@@ -1,10 +1,10 @@
 export const PRODUCTS = [
-  {
+{
     id: "raspberry",
     amazonUrl: "https://www.amazon.ca/dp/B0HHNWY8MG",
     name: "Organic Raspberry Powder",
     displayName: "Raspberry Powder",
-    images: ["/10.webp", "/11.webp", "/12.webp"],
+    images: ["/10.webp", "/product_card_rasp.webp", "/11.webp", "/12.webp"],
     prices: { "250g": 24.99 },
     originalPrices: { "250g": 29.39 },
     color: "#e4053a",
@@ -21,6 +21,7 @@ export const PRODUCTS = [
     pairing: "Perfect paired with oat milk, vanilla protein, or blended into coconut yogurt.",
     recipe: {
       title: "Raspberry Rose Smoothie Bowl",
+      image: "/recipe_raspberry_rose.webp",
       time: "10 Min",
       difficulty: "Easy",
       ingredients: ["2 tbsp Raspberry Powder", "1 cup frozen mixed berries", "1 frozen banana", "1/2 cup almond milk", "Toppings: granola, fresh berries, coconut flakes"],
@@ -28,18 +29,19 @@ export const PRODUCTS = [
     },
     recipe2: {
       title: "Raspberry Lemonade",
+      image: "/recipe_raspberry_lemonade.webp",
       time: "5 Min",
       difficulty: "Easy",
       ingredients: ["1 tbsp Raspberry Powder", "Juice of 1 lemon", "2 cups chilled water", "1 tsp honey or maple syrup", "Ice & fresh mint"],
       steps: "Whisk Raspberry Powder into lemon juice until dissolved. Add chilled water, sweetener, and stir well. Serve over ice with fresh mint."
     }
   },
-  {
+{
     id: "pineapple",
     amazonUrl: "https://www.amazon.ca/dp/B0HHXD2P1J",
     name: "Organic Pineapple Fruit Juice Powder",
     displayName: "Pineapple Fruit Juice Powder",
-    images: ["/13.webp", "/14.webp", "/15.webp"],
+    images: ["/13.webp", "/product_card_pine.webp", "/14.webp", "/15.webp"],
     prices: { "250g": 27.99 },
     originalPrices: { "250g": 32.99 },
     color: "#f0af02",
@@ -56,6 +58,7 @@ export const PRODUCTS = [
     pairing: "Pairs beautifully with ginger, green tea, or blended into green smoothies.",
     recipe: {
       title: "Tropical Pineapple Detox",
+      image: "/recipe_pineapple_detox.webp",
       time: "5 Min",
       difficulty: "Easy",
       ingredients: ["1 tbsp Pineapple Powder", "1 cup chilled coconut water", "1/2 inch fresh ginger", "Squeeze of lime juice", "Ice cubes"],
@@ -63,53 +66,19 @@ export const PRODUCTS = [
     },
     recipe2: {
       title: "Pineapple Chia Pudding",
+      image: "/recipe_pineapple_chia.webp",
       time: "10 Min + 2h chill",
       difficulty: "Easy",
       ingredients: ["1.5 tbsp Pineapple Powder", "3 tbsp chia seeds", "1.5 cups coconut milk", "1 tsp maple syrup", "Fresh pineapple chunks"],
       steps: "Mix Pineapple Powder into coconut milk. Stir in chia seeds and sweetener. Refrigerate 2 hours or overnight. Top with fresh pineapple."
     }
   },
-  {
-    id: "beetroot",
-    amazonUrl: "https://www.amazon.ca/dp/B0HHXN6MG7",
-    name: "Organic Beetroot Powder",
-    displayName: "Beetroot Powder",
-    images: ["/16.webp", "/17.webp", "/18.webp"],
-    prices: { "250g": 20.99 },
-    originalPrices: { "250g": 24.99 },
-    color: "#9b2e36",
-    lightColor: "rgba(155, 46, 54, 0.08)",
-    hoverColor: "#7c2228",
-    tagline: "Pure circulation and stamina booster from premium organic beets.",
-    description: "A favourite among athletes and wellness enthusiasts. Viberoot Organic Beetroot Powder is loaded with dietary nitrates that help optimize blood circulation, lower blood pressure, and boost natural athletic performance. Its earthy, sweet profile adds depth and vitality to pre-workouts and morning elixirs.",
-    benefits: ["Optimizes Blood Flow", "Enhances Athletic Stamina", "Natural Nitric Oxide Booster"],
-    healthGoals: ["Energy", "Detox"],
-    rating: 4.9,
-    reviews: 410,
-    nutrition: { Calories: "35 kcal", Nitrates: "High Activity", Iron: "8% DV", Folate: "12% DV" },
-    ingredients: "100% Certified Organic Dehydrated Beetroot Powder.",
-    pairing: "Blends well with raw cacao, ginger, or in warm almond milk lattes.",
-    recipe: {
-      title: "Beetroot Pre-Workout Latte",
-      time: "5 Min",
-      difficulty: "Easy",
-      ingredients: ["1.5 tbsp Beetroot Powder", "1 cup plant milk (warm)", "1 tsp raw honey", "1/4 tsp cinnamon", "Pinch of black pepper"],
-      steps: "Whisk Beetroot Powder into warm plant milk until smooth. Add honey, cinnamon, and a pinch of pepper. Froth and serve hot."
-    },
-    recipe2: {
-      title: "Pink Beet Overnight Oats",
-      time: "5 Min + overnight",
-      difficulty: "Easy",
-      ingredients: ["1 tbsp Beetroot Powder", "1/2 cup rolled oats", "1 cup almond milk", "1 tbsp chia seeds", "Berries & seeds to top"],
-      steps: "Mix Beetroot Powder with almond milk. Stir in oats and chia seeds. Refrigerate overnight. Top with fresh berries and seeds in the morning."
-    }
-  },
-  {
+{
     id: "ginger",
     amazonUrl: "https://www.amazon.ca/s?k=viberoot+organic+ginger+powder",
     name: "Organic Ginger Root Powder",
     displayName: "Ginger Root Powder",
-    images: ["/19.webp", "/20.webp", "/21.webp"],
+    images: ["/19.webp", "/product_card_ginger.webp", "/20.webp", "/21.webp"],
     prices: { "250g": 20.99 },
     originalPrices: { "250g": 24.99 },
     color: "#b46e31",
@@ -126,6 +95,7 @@ export const PRODUCTS = [
     pairing: "Perfect with honey, lemon, hot water, or blended with pineapple.",
     recipe: {
       title: "Golden Ginger Immunity Shot",
+      image: "/recipe_ginger_immunity.webp",
       time: "5 Min",
       difficulty: "Easy",
       ingredients: ["1 tsp Ginger Powder", "1 lemon (juiced)", "1/2 tsp turmeric", "1/2 cup warm water", "1/2 tsp raw honey"],
@@ -133,18 +103,56 @@ export const PRODUCTS = [
     },
     recipe2: {
       title: "Warming Ginger Chai Latte",
+      image: "/recipe_ginger_chai.webp",
       time: "10 Min",
       difficulty: "Easy",
       ingredients: ["1.5 tsp Ginger Powder", "1 black tea bag", "1 cup plant milk", "1/4 tsp cinnamon", "1/4 tsp cardamom", "Honey to taste"],
       steps: "Brew tea bag in half cup water. Add plant milk, Ginger Powder, and spices. Simmer 3 minutes. Sweeten with honey and serve hot."
     }
   },
-  {
+{
+    id: "beetroot",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHXN6MG7",
+    name: "Organic Beetroot Powder",
+    displayName: "Beetroot Powder",
+    images: ["/16.webp", "/product_card_beetroot.webp", "/17.webp", "/18.webp"],
+    prices: { "250g": 20.99 },
+    originalPrices: { "250g": 24.99 },
+    color: "#9b2e36",
+    lightColor: "rgba(155, 46, 54, 0.08)",
+    hoverColor: "#7c2228",
+    tagline: "Pure circulation and stamina booster from premium organic beets.",
+    description: "A favourite among athletes and wellness enthusiasts. Viberoot Organic Beetroot Powder is loaded with dietary nitrates that help optimize blood circulation, lower blood pressure, and boost natural athletic performance. Its earthy, sweet profile adds depth and vitality to pre-workouts and morning elixirs.",
+    benefits: ["Optimizes Blood Flow", "Enhances Athletic Stamina", "Natural Nitric Oxide Booster"],
+    healthGoals: ["Energy", "Detox"],
+    rating: 4.9,
+    reviews: 410,
+    nutrition: { Calories: "35 kcal", Nitrates: "High Activity", Iron: "8% DV", Folate: "12% DV" },
+    ingredients: "100% Certified Organic Dehydrated Beetroot Powder.",
+    pairing: "Blends well with raw cacao, ginger, or in warm almond milk lattes.",
+    recipe: {
+      title: "Beetroot Pre-Workout Latte",
+      image: "/recipe_beetroot_latte.webp",
+      time: "5 Min",
+      difficulty: "Easy",
+      ingredients: ["1.5 tbsp Beetroot Powder", "1 cup plant milk (warm)", "1 tsp raw honey", "1/4 tsp cinnamon", "Pinch of black pepper"],
+      steps: "Whisk Beetroot Powder into warm plant milk until smooth. Add honey, cinnamon, and a pinch of pepper. Froth and serve hot."
+    },
+    recipe2: {
+      title: "Pink Beet Overnight Oats",
+      image: "/recipe_beetroot_oats.webp",
+      time: "5 Min + overnight",
+      difficulty: "Easy",
+      ingredients: ["1 tbsp Beetroot Powder", "1/2 cup rolled oats", "1 cup almond milk", "1 tbsp chia seeds", "Berries & seeds to top"],
+      steps: "Mix Beetroot Powder with almond milk. Stir in oats and chia seeds. Refrigerate overnight. Top with fresh berries and seeds in the morning."
+    }
+  },
+{
     id: "wheatgrass",
     amazonUrl: "https://www.amazon.ca/dp/B0HHY25VNZ",
     name: "Organic Wheat Grass Powder",
     displayName: "Wheat Grass Powder",
-    images: ["/23.webp", "/24.webp", "/25.webp"],
+    images: ["/23.webp", "/product_card_wheat.webp", "/24.webp", "/25.webp"],
     prices: { "250g": 21.99 },
     originalPrices: { "250g": 25.99 },
     color: "#465034",
@@ -161,6 +169,7 @@ export const PRODUCTS = [
     pairing: "Best blended with cold apple juice, orange juice, or green apples.",
     recipe: {
       title: "Wheatgrass Morning Shot",
+      image: "/recipe_wheatgrass_shot.webp",
       time: "5 Min",
       difficulty: "Easy",
       ingredients: ["1 tbsp Wheat Grass Powder", "1 cup fresh apple juice", "1/2 cucumber sliced", "Squeeze of fresh lemon"],
@@ -168,6 +177,7 @@ export const PRODUCTS = [
     },
     recipe2: {
       title: "Green Detox Smoothie",
+      image: "/recipe_wheatgrass_smoothie.webp",
       time: "5 Min",
       difficulty: "Easy",
       ingredients: ["1.5 tbsp Wheat Grass Powder", "1 green apple", "1/2 cup spinach", "1 cup coconut water", "1/2 lemon juiced", "Ginger to taste"],

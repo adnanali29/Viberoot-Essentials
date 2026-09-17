@@ -446,18 +446,35 @@
 
 .sliderViewport {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 12px;
+  cursor: grab;
+  user-select: none;
+}
+
+.sliderViewport:active {
+  cursor: grabbing;
+}
+
+.sliderViewport::-webkit-scrollbar {
+  display: none;
 }
 
 .sliderTrack {
   display: flex;
   width: 100%;
+  gap: 16px;
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Each card occupies exactly 1/4 of viewport width */
+/* Desktop: Fit all 5 cards in a single line on large screens */
 .productCard {
-  flex: 0 0 calc(25% - 18px);
+  flex: 0 0 calc(33.333% - 16px);
+  max-width: calc(33.333% - 16px);
   flex-shrink: 0;
   background: #fff;
   border-radius: 16px;
@@ -466,7 +483,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   cursor: pointer;
-  margin-right: 24px;
+  scroll-snap-align: start;
 }
 
 .productCard:hover {
@@ -1956,8 +1973,8 @@
   }
   
   .productCard {
-    flex: 0 0 calc(50% - 10px);
-    max-width: calc(50% - 10px);
+    flex: 0 0 calc(33.333% - 16px);
+    max-width: calc(33.333% - 16px);
   }
 }
 
@@ -2001,10 +2018,14 @@
     gap: 24px;
   }
 
+  .sliderTrack {
+    transform: none !important;
+  }
   .productCard {
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin-right: 0;
+    flex: 0 0 84vw !important;
+    max-width: 320px !important;
+    margin-right: 0 !important;
+    scroll-snap-align: start;
   }
 }
 
@@ -2162,13 +2183,20 @@
 }
 
 /* 3-Column Bento Grid Container */
+.gutScienceSection {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  box-sizing: border-box;
+}
+
 .bentoGrid {
-  max-width: 1200px;
+  max-width: 1040px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
-  gap: 20px;
+  gap: 14px;
 }
 
 .bentoImg {
@@ -2181,24 +2209,24 @@
 .bentoCardTextBrown {
   background-color: #6d392b;
   color: #ffffff;
-  padding: 36px 32px;
-  border-radius: 28px;
+  padding: 24px 22px;
+  border-radius: 22px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 180px;
+  min-height: 140px;
 }
 
 .bentoCardTextBrown h3 {
   font-family: var(--font-serif);
-  font-size: 1.7rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .bentoCardTextBrown p {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.4;
   opacity: 0.9;
 }
 
@@ -2206,24 +2234,25 @@
 .bentoCardTextGold {
   background-color: #e58d18;
   color: #1a1510;
-  padding: 36px 32px;
-  border-radius: 28px;
+  padding: 24px 22px;
+  border-radius: 22px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 180px;
+  min-height: 140px;
+  text-align: center;
 }
 
 .bentoCardTextGold h3 {
   font-family: var(--font-serif);
-  font-size: 1.7rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .bentoCardTextGold p {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.4;
   opacity: 0.9;
 }
 
@@ -2232,8 +2261,8 @@
   grid-column: 3;
   grid-row: 1 / span 2;
   position: relative;
-  border-radius: 28px;
-  min-height: 480px;
+  border-radius: 22px;
+  min-height: 310px;
   overflow: hidden;
 }
 
@@ -2242,8 +2271,8 @@
   grid-column: 1;
   grid-row: 2 / span 2;
   position: relative;
-  border-radius: 28px;
-  min-height: 420px;
+  border-radius: 22px;
+  min-height: 310px;
   overflow: hidden;
 }
 
@@ -2252,8 +2281,8 @@
   grid-column: 2;
   grid-row: 2;
   position: relative;
-  border-radius: 28px;
-  min-height: 220px;
+  border-radius: 22px;
+  min-height: 150px;
   overflow: hidden;
 }
 
@@ -2263,36 +2292,54 @@
   grid-row: 3;
   background-color: #f45b69;
   color: #ffffff;
-  padding: 36px 32px;
-  border-radius: 28px;
+  padding: 24px 22px;
+  border-radius: 22px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 180px;
+  min-height: 140px;
   text-align: center;
 }
 
 .bentoCardTextPink h3 {
   font-family: var(--font-serif);
-  font-size: 1.7rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .bentoCardTextPink p {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.4;
   opacity: 0.95;
 }
 
-/* Card 7: Bottom Right Flatlay */
-.bentoCardFlatlay {
+/* Card 7: Bottom Right Green Text Card (Right Aligned) */
+.bentoCardTextGreen {
   grid-column: 3;
   grid-row: 3;
-  position: relative;
-  border-radius: 28px;
-  min-height: 220px;
-  overflow: hidden;
+  background-color: #24492b;
+  color: #ffffff;
+  padding: 24px 22px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 140px;
+  text-align: right;
+}
+
+.bentoCardTextGreen h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.bentoCardTextGreen p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  opacity: 0.95;
 }
 
 /* Hover effects */
@@ -2325,7 +2372,8 @@
 
   .bentoCardTextBrown,
   .bentoCardTextGold,
-  .bentoCardTextPink {
+  .bentoCardTextPink,
+  .bentoCardTextGreen {
     padding: 16px 10px !important;
     border-radius: 16px !important;
     min-height: 120px !important;
@@ -2334,7 +2382,8 @@
 
   .bentoCardTextBrown h3,
   .bentoCardTextGold h3,
-  .bentoCardTextPink h3 {
+  .bentoCardTextPink h3,
+  .bentoCardTextGreen h3 {
     font-size: 0.8rem !important;
     margin-bottom: 6px !important;
     line-height: 1.15 !important;
@@ -2342,7 +2391,8 @@
 
   .bentoCardTextBrown p,
   .bentoCardTextGold p,
-  .bentoCardTextPink p {
+  .bentoCardTextPink p,
+  .bentoCardTextGreen p {
     font-size: 0.62rem !important;
     line-height: 1.3 !important;
   }
@@ -2373,11 +2423,12 @@
     grid-row: 3 !important;
   }
 
-  .bentoCardFlatlay {
+  .bentoCardTextGreen {
     grid-column: 3 !important;
     grid-row: 3 !important;
     min-height: 120px !important;
     border-radius: 16px !important;
+    text-align: right !important;
   }
 
   .gutScienceTitleSingleLine {
@@ -2528,4 +2579,452 @@
 .modalBody::-webkit-scrollbar-thumb:hover,
 .modal::-webkit-scrollbar-thumb:hover {
   background: #1b4332;
+}
+
+
+/* Manual Video Slider CSS */
+.videoSliderViewport {
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 10px 4px 24px 4px;
+  cursor: grab;
+  user-select: none;
+}
+
+.videoSliderViewport:active {
+  cursor: grabbing;
+}
+
+.videoSliderViewport::-webkit-scrollbar {
+  display: none;
+}
+
+.videoSliderTrack {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+.videoCardItem {
+  flex: 0 0 320px;
+  max-width: 320px;
+  scroll-snap-align: start;
+}
+
+.videoCardWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #1b4332;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.videoCardWrapper:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.videoCardPlayer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoCardOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 16px 16px 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.videoCardBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 3px 8px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.videoCardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .videoCardItem {
+    flex: 0 0 80vw;
+    max-width: 300px;
+  }
+}
+
+.videoPlayerContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #1b4332;
+  box-shadow: 0 20px 45px rgba(27, 67, 50, 0.16);
+}
+
+.purityVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoTitleBanner {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 12px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 5;
+}
+
+.videoStepTag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a3e635;
+}
+
+.videoStepTitle {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.videoNavBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 1.8rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.videoNavBtn:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: #1c2a21;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.videoNavBtnPrev {
+  left: 20px;
+}
+
+.videoNavBtnNext {
+  right: 20px;
+}
+
+.videoDotsContainer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.videoDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.videoDotActive {
+  width: 28px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+/* Recipes Section Upgrades */
+.recipesSection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.recipeCard {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.recipeCard:hover {
+  transform: translateY(-6px);
+  border-color: var(--recipe-accent, #1b4332);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+}
+
+.recipeCardImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.recipeCardImg {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.recipeCard:hover .recipeCardImg {
+  transform: scale(1.06);
+}
+
+.recipeCardOverlayTag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.recipeCardContent {
+  padding: 18px 16px;
+}
+
+.recipeCardHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.recipeDrinkTag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--recipe-accent, #1b4332);
+  letter-spacing: 0.08em;
+}
+
+.recipeCardTimePill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #444;
+  background: #f0f4f1;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.recipeCardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1c2a21;
+  margin: 0 0 14px 0;
+  line-height: 1.3;
+}
+
+.recipeCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.recipeCardDifficulty {
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.recipeCircleArrowBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #1b4332;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.recipeCard:hover .recipeCircleArrowBtn {
+  background: var(--recipe-accent, #1b4332);
+  transform: translateX(2px);
+}
+
+
+/* Testimonials Endless Marquee Slider */
+.testimonialsMarqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 24px 0 40px 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.testimonialsMarqueeTrack {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: continuousMarquee 55s linear infinite;
+}
+
+.testimonialsMarqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes continuousMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonialCard {
+  flex: 0 0 340px;
+  max-width: 340px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 26px 22px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(27, 67, 50, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(27, 67, 50, 0.12);
+  border-color: #1b4332;
+}
+
+.testimonialHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.testimonialStars {
+  color: #f59e0b;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+}
+
+.testimonialRatingBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1b4332;
+  background: #e8f5e9;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.testimonialQuote {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #333330;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.testimonialAuthorFooter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.testimonialAuthorBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.authorName {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1c2a21;
+}
+
+.authorLocation {
+  font-size: 0.78rem;
+  color: #666663;
+}
+
+.testimonialDate {
+  font-size: 0.75rem;
+  color: #888885;
 }

@@ -32,7 +32,8 @@
   height: 84px;
   display: flex;
   align-items: center;
-  gap: 32px;
+  justify-content: space-between;
+  position: relative;
 }
 
 .logoWrap {
@@ -53,8 +54,11 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 4px;
-  flex: 1;
+  justify-content: center;
+  gap: 12px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navLink {
@@ -79,7 +83,7 @@
 }
 
 .actions {
-  margin-left: auto;
+  margin-left: 0;
   flex-shrink: 0;
 }
 

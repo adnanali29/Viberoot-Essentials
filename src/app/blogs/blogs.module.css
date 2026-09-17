@@ -1,6 +1,6 @@
 .page { min-height: 100vh; background: #faf8f5; }
-.hero { position: relative; height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.heroBg { position: absolute; inset: 0; background: linear-gradient(135deg, #0f2b1f 0%, #1b4332 60%, #2d5016 100%); }
+.hero { position: relative; height: 340px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.heroBg { position: absolute; inset: 0; background: linear-gradient(135deg, #2b1f17 0%, #1c3d2d 60%, #10271c 100%); }
 .heroContent { position: relative; text-align: center; color: #faf8f5; padding: 0 24px; }
 .heroOverline { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; color: #c49a45; display: block; margin-bottom: 12px; }
 .heroTitle { font-family: var(--font-serif, Georgia, serif); font-size: 2.8rem; font-weight: 800; margin-bottom: 12px; }
@@ -50,3 +50,8 @@
 .newsletterBtn:hover { background: #f0af02; }
 
 @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } .heroTitle { font-size: 2rem; } }
+
+.blogTagsRow { display: flex; gap: 10px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+.blogTagsRow span { font-size: 0.75rem; font-weight: 700; background: rgba(196, 154, 69, 0.2); backdrop-filter: blur(8px); padding: 5px 14px; border-radius: 20px; color: #facc15; border: 1px solid rgba(196, 154, 69, 0.4); }
+
+
