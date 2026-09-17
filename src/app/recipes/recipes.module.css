@@ -101,3 +101,60 @@
 }
 
 
+
+.modalBuyCtaRow {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(27, 67, 50, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.modalBuyProductInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalBuyPowderTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1b4332;
+}
+
+.modalBuyPrice {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1b2b22;
+}
+
+.modalBuyNowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.modalBuyNowBtn:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+@media (max-width: 600px) {
+  .modalBuyCtaRow {
+    flex-direction: column;
+    text-align: center;
+  }
+  .modalBuyNowBtn {
+    width: 100%;
+  }
+}

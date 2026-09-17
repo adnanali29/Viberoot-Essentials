@@ -151,6 +151,23 @@ export default function RecipesPage() {
               <div className={styles.modalTip}>
                 <strong>💡 Viberoot Tip:</strong> {selected.product.pairing}
               </div>
+
+              {/* Buy Now Product CTA */}
+              <div className={styles.modalBuyCtaRow}>
+                <div className={styles.modalBuyProductInfo}>
+                  <span className={styles.modalBuyPowderTitle}>Made with {selected.product.displayName}</span>
+                  <span className={styles.modalBuyPrice}>C$ {selected.product.prices["250g"].toFixed(2)}</span>
+                </div>
+                <a
+                  href={selected.product.amazonUrl || "https://www.amazon.ca"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.modalBuyNowBtn}
+                  style={{ background: selected.product.color }}
+                >
+                  🛒 Buy {selected.product.displayName.split(" ")[0]} Powder Now &rarr;
+                </a>
+              </div>
             </div>
           </div>
         </div>
