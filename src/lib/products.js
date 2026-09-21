@@ -202,6 +202,7 @@ export const BLOGS = [
     category: "Nutrition",
     date: "Aug 18, 2026",
     readTime: "4 min read",
+    image: "/16.webp",
     excerpt: "Beetroot powder is no longer just an athlete's secret. Discover how daily dietary nitrates from organic beets can transform your energy, blood pressure, and stamina in just weeks.",
     content: "Organic Beetroot Powder is packed with natural nitrates that the body converts to nitric oxide — a molecule that widens blood vessels, improving circulation and oxygen delivery to muscles. Studies show consistent beetroot supplementation can improve exercise endurance by up to 16%. Beyond athletics, the high folate content supports cognitive function and heart health. The deep red color comes from betalains — potent anti-inflammatory compounds that protect cells from oxidative stress. Starting with 1 tablespoon daily in warm water or a morning smoothie is all it takes to begin feeling the benefits. Organic certification ensures no pesticide residue — just pure beet nutrition in every scoop."
   },
@@ -211,6 +212,7 @@ export const BLOGS = [
     category: "Superfood Science",
     date: "Aug 10, 2026",
     readTime: "5 min read",
+    image: "/23.webp",
     excerpt: "Packed with chlorophyll, iron, and over 70 minerals, young wheatgrass may be the most nutritionally complete plant food available. Here's the science behind the hype.",
     content: "Wheatgrass is harvested from the young shoots of Triticum aestivum — before the plant begins producing wheat grain. At this stage, the grass contains extraordinarily high concentrations of chlorophyll (the green pigment that mirrors human hemoglobin in structure), vitamins A, C, and E, calcium, magnesium, and amino acids. The alkalizing effect of chlorophyll helps neutralize acidic foods and supports the liver in its daily detoxification role. Our cold-press processing ensures enzymes remain fully active — a key differentiator from heat-dried alternatives. Take it as a morning shot or blend into your green smoothies for a sustained energy lift that does not crash."
   },
@@ -220,6 +222,7 @@ export const BLOGS = [
     category: "Ingredient Deep Dive",
     date: "Aug 02, 2026",
     readTime: "4 min read",
+    image: "/19.webp",
     excerpt: "Fresh ginger gets all the glory, but is powdered ginger actually more therapeutically concentrated? The answer might surprise Canadian wellness shoppers.",
     content: "When ginger is dried and powdered, the concentration of active compounds — particularly shogaols — actually increases significantly compared to fresh root. While fresh ginger is higher in gingerols, the dehydration process converts gingerols to shogaols, which research shows have even stronger anti-inflammatory properties. For gut health, nausea relief, and anti-inflammatory support, organic ginger powder used daily delivers a more consistent therapeutic dose than fresh root, which varies widely in potency. Viberoot's low-temperature dehydration ensures bioactive compounds are preserved. Add 1/2 teaspoon to warm lemon water each morning or stir into golden milk for a daily anti-inflammatory ritual."
   },
@@ -229,7 +232,28 @@ export const BLOGS = [
     category: "Lifestyle",
     date: "Jul 25, 2026",
     readTime: "3 min read",
+    image: "/10.webp",
     excerpt: "Understanding Canadian Organic Regime (COR) certified products and why it matters for the powders you add to your daily smoothies.",
     content: "Canada's organic certification framework — the Canadian Organic Regime (COR) — ensures that certified products are produced without synthetic pesticides, GMOs, or prohibited substances. Look for the Canada Organic logo or USDA Organic equivalent when shopping for superfoods. At Viberoot Essentials, every product carries organic certification traceable to the farm level. This matters especially for powdered superfoods, where the concentration process also concentrates any contaminants present in conventionally grown plants. Third-party lab testing for heavy metals, microbials, and pesticide residues is our non-negotiable standard before any batch ships to Canadian customers."
+  },
+  {
+    id: 5,
+    title: "The Secret to Digestive Enzymes: How Organic Pineapple Bromelain Helps Your Gut",
+    category: "Superfood Science",
+    date: "Jul 18, 2026",
+    readTime: "4 min read",
+    image: "/13.webp",
+    excerpt: "Bromelain in organic pineapple juice powder actively breaks down complex proteins, eases post-meal bloating, and optimizes nutrient absorption.",
+    content: "Pineapple is one of nature's richest natural sources of Bromelain — a powerful proteolytic enzyme complex that assists the body in breaking down dietary proteins into easily absorbed amino acids. Spray-drying fresh organic pineapple juice at controlled low temperatures preserves active enzyme units that heat processing destroys. Incorporating 1 tablespoon of organic pineapple powder into post-workout shakes or daily fruit juices supports optimal digestion, reduces systemic inflammation, and promotes sustained physical energy."
+  },
+  {
+    id: 6,
+    title: "Raspberries & Collagen: The Anti-Aging Superfood Pair You Need",
+    category: "Nutrition",
+    date: "Jul 10, 2026",
+    readTime: "5 min read",
+    image: "/product_card_rasp.webp",
+    excerpt: "Discover how natural Vitamin C and ellagic acid in freeze-dried organic raspberries stimulate natural collagen production for healthy skin.",
+    content: "Collagen is the primary structural protein in human skin, hair, and connective tissue. While many collagen supplements derive from animal sources, true skin rejuvenation relies on Vitamin C and antioxidants to synthesize collagen naturally. Organic red raspberries contain exceptionally high levels of Vitamin C and ellagic acid — a polyphenolic compound that inhibits collagen breakdown caused by UV exposure. Adding 1-2 tablespoons of organic freeze-dried raspberry powder to morning yogurt or oats delivers a vibrant antioxidant shield."
   }
 ];

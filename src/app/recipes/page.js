@@ -30,13 +30,14 @@ export default function RecipesPage() {
   return (
     <div className={styles.page}>
       {/* Hero */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroContent}>
-          <span className={styles.heroOverline}>🍃 ORGANIC RECIPES</span>
-          <h1 className={styles.heroTitle}>Nourish Your Body<br />One Recipe at a Time</h1>
-          <p className={styles.disclaimerNote}>NOTE: All dish images are for illustration purposes only. Final dish appearance may vary from person to person.</p>
-        </div>
+      <section className={styles.heroBannerImageWrap}>
+        <Image 
+          src="/hero_recipes_hd.png" unoptimized 
+          alt="VibeRoot Organic Recipes Banner" 
+          fill 
+          priority 
+          className={styles.heroImgBanner}
+        />
       </section>
 
       {/* Filter Bar */}

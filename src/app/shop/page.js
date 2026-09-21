@@ -116,17 +116,14 @@ export default function ShopPage() {
       {toast && <div className={styles.toast}>{toast}</div>}
 
       {/* Hero Banner */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroContent}>
-          <div className={styles.heroPillsRow}>
-            <span className={styles.heroPill}>🌿 USDA Organic</span>
-            <span className={styles.heroPill}>🧪 Triple Lab Tested</span>
-            <span className={styles.heroPill}>🇨🇦 Packaged in Calgary, AB</span>
-          </div>
-          <h1 className={styles.heroTitle}>Shop All Products</h1>
-          <p className={styles.heroSubtitle}>Pure organic superfoods, cold-pressed and triple tested — delivered straight to your door across Canada.</p>
-        </div>
+      <section className={styles.heroBannerImageWrap}>
+        <Image 
+          src="/hero_shop_v3.png" unoptimized 
+          alt="VibeRoot Organic Powders Shop Banner" 
+          fill 
+          priority 
+          className={styles.heroImgBanner}
+        />
       </section>
 
       {/* Products Grid */}

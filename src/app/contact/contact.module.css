@@ -50,3 +50,23 @@
 .statusDot { font-size: 0.65rem; }
 
 
+
+
+/* Image Hero Banner (Clean, no text overlay) */
+.heroBannerImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2172 / 724;
+  overflow: hidden;
+  background-color: #10271c;
+}
+
+.heroImgBanner {
+  object-fit: cover;
+  object-position: center;
+}
+
+
+
+
+

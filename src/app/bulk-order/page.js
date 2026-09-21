@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { PRODUCTS } from "@/lib/products";
+import Image from "next/image";
 import styles from "./bulk.module.css";
 
 export default function BulkOrderPage() {
@@ -20,13 +21,14 @@ export default function BulkOrderPage() {
   return (
     <div className={styles.page}>
       {/* Hero */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroContent}>
-          <span className={styles.heroOverline}>🏢 WHOLESALE & BULK</span>
-          <h1 className={styles.heroTitle}>Bulk Order Enquiry</h1>
-          <p className={styles.heroSubtitle}>Partner with VibeRoot for wholesale pricing on all 5 organic powders. Restaurants, gyms, health stores, and meal-kit brands welcome.</p>
-        </div>
+      <section className={styles.heroBannerImageWrap}>
+        <Image 
+          src="/hero_bulk_hd.png" unoptimized 
+          alt="VibeRoot Bulk Buy Banner" 
+          fill 
+          priority 
+          className={styles.heroImgBanner}
+        />
       </section>
 
       <section className={styles.contentSection}>
@@ -73,7 +75,7 @@ export default function BulkOrderPage() {
                   </div>
                   <div className={styles.field}>
                     <label className={styles.label}>Phone Number *</label>
-                    <input className={styles.input} type="tel" name="phone" placeholder="+1 (416) 555-0000" value={form.phone} onChange={handle} required />
+                    <input className={styles.input} type="tel" name="phone" placeholder="+1 (587) 832-0198" value={form.phone} onChange={handle} required />
                   </div>
                 </div>
 

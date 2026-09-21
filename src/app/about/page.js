@@ -1,116 +1,152 @@
+import Image from "next/image";
+import Link from "next/link";
 import styles from "./about.module.css";
 
 export const metadata = {
-  title: "About VibeRoot Essentials | Our Story",
-  description: "Learn about VibeRoot Essentials — Canada's premium organic superfood powder brand, grown with purpose and packed with purity in Calgary, AB.",
+  title: "About VibeRoot Essentials | Our Story & Purity Commitment",
+  description: "Learn about VibeRoot Essentials — Canada's premier organic superfood powder brand, cold-pressed and packaged with absolute purity in Calgary, Alberta.",
 };
 
 export default function AboutPage() {
   return (
     <div className={styles.page}>
-      {/* Hero */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroContent}>
-          <span className={styles.heroOverline}>🌱 OUR STORY</span>
-          <h1 className={styles.heroTitle}>About VibeRoot Essentials</h1>
-          <p className={styles.heroSubtitle}>Born in Calgary, AB. Rooted in nature. Built for the Canadian wellness generation.</p>
-        </div>
-      </section>
-
-      {/* Video Bar */}
-      <section className={styles.videoBar}>
-        <video
-          className={styles.video}
-          src="https://cdn.mixkit.co/videos/preview/mixkit-green-plant-growing-in-a-field-4-small.mp4"
-          autoPlay muted loop playsInline
+      {/* Hero Section */}
+      <section className={styles.heroBannerImageWrap}>
+        <Image 
+          src="/hero_about_hd.png" unoptimized 
+          alt="About VibeRoot Essentials Banner" 
+          fill 
+          priority 
+          className={styles.heroImgBanner}
         />
-        <div className={styles.videoOverlay}>
-          <p className={styles.videoQuote}>"From the farm to your kitchen — every scoop carries our promise."</p>
-        </div>
       </section>
 
-      {/* Mission */}
-      <section className={styles.mission}>
-        <div className={styles.missionInner}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.overline}>OUR GUIDING PRINCIPLES</span>
-            <h2 className={styles.missionTitle}>Mission & Vision</h2>
-            <p className={styles.missionSubtext}>Building Canada's most trusted organic superfood movement with purpose and purity.</p>
-          </div>
+      {/* Brand Story Section */}
+      <section className={styles.storySection}>
+        <div className={styles.container}>
+          <div className={styles.storyGrid}>
+            <div className={styles.storyTextCol}>
+              <span className={styles.sectionOverline}>OUR HERITAGE</span>
+              <h2 className={styles.sectionHeading}>Why We Started VibeRoot Essentials</h2>
+              <p className={styles.paragraph}>
+                VibeRoot Essentials was born in Calgary, Alberta with a clear, uncompromising vision: to bring honest, unadulterated plant nutrition back into daily Canadian life.
+              </p>
+              <p className={styles.paragraph}>
+                In an industry filled with synthetic additives, artificial sweeteners, and mystery blend fillers, we chose total transparency. Every single scoop of our powders contains 100% pure, freeze-dried or cold-pressed organic botanicals — harvested at peak potency to preserve living enzymes and vital micro-nutrients.
+              </p>
 
-          <div className={styles.mvCardsGrid}>
-            <div className={styles.mvCard}>
-              <div className={styles.mvCardHeader}>
-                <span className={styles.mvIcon}>🎯</span>
-                <div>
-                  <span className={styles.mvCategory}>CATEGORY 1</span>
-                  <h3 className={styles.mvCardTitle}>Our Mission</h3>
+              <div className={styles.highlightQuoteBox}>
+                <p>"We believe true health starts at the root. No shortcuts, no compromises — just raw plant power from nature to your glass."</p>
+              </div>
+            </div>
+
+            <div className={styles.storyVisualCol}>
+              <div className={styles.visualCardMain}>
+                <div className={styles.visualBadge}>🇨🇦 Calgary, AB</div>
+                <div className={styles.visualCardContent}>
+                  <h3>Purity First</h3>
+                  <p>Packaged locally in Calgary under strict Canadian Organic Regime standards.</p>
                 </div>
               </div>
-              <p className={styles.mvCardBody}>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision Section */}
+      <section className={styles.missionSection}>
+        <div className={styles.container}>
+          <div className={styles.headerCentered}>
+            <span className={styles.sectionOverline}>GUIDING PRINCIPLES</span>
+            <h2 className={styles.sectionHeading}>Our Mission & Vision</h2>
+            <p className={styles.headerSubtext}>
+              Pioneering Canada's most trusted organic superfood movement with purpose, transparency, and environmental care.
+            </p>
+          </div>
+
+          <div className={styles.missionGrid}>
+            <div className={styles.missionCard}>
+              <div className={styles.cardHeaderRow}>
+                <div className={styles.iconCircle}>🎯</div>
+                <h3>Our Mission</h3>
+              </div>
+              <p>
                 To empower every Canadian with pure, potent, cold-pressed organic superfoods — uncompromised quality, zero synthetic additives or fillers, transparently lab-tested, and harvested at peak potency to make daily organic wellness effortless and accessible.
               </p>
             </div>
 
-            <div className={styles.mvCard}>
-              <div className={styles.mvCardHeader}>
-                <span className={styles.mvIcon}>👁️</span>
-                <div>
-                  <span className={styles.mvCategory}>CATEGORY 2</span>
-                  <h3 className={styles.mvCardTitle}>Our Vision</h3>
-                </div>
+            <div className={styles.missionCard}>
+              <div className={styles.cardHeaderRow}>
+                <div className={styles.iconCircle}>👁️</div>
+                <h3>Our Vision</h3>
               </div>
-              <p className={styles.mvCardBody}>
-                To build Canada's most trusted organic superfood movement — pioneering sustainable, farm-to-table nutrition that inspires healthier communities across North America while protecting our planet with eco-conscious, zero-waste practices.
+              <p>
+                To build Canada's most trusted organic superfood movement — pioneering sustainable, farm-to-table nutrition that inspires healthier communities across North America while protecting our planet with eco-conscious practices.
               </p>
             </div>
           </div>
 
-          <div className={styles.missionStats}>
+          {/* Stats Bar */}
+          <div className={styles.statsBar}>
+            <div className={styles.statItem}>
+              <span className={styles.statNumber}>100%</span>
+              <span className={styles.statLabel}>Certified Organic</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statNumber}>5</span>
+              <span className={styles.statLabel}>Superfood Concentrates</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statNumber}>10,000+</span>
+              <span className={styles.statLabel}>Canadians Served</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statNumber}>0</span>
+              <span className={styles.statLabel}>Synthetic Additives</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The VibeRoot Promise Pillars */}
+      <section className={styles.pillarsSection}>
+        <div className={styles.container}>
+          <div className={styles.headerCentered}>
+            <span className={styles.sectionOverline}>OUR STANDARDS</span>
+            <h2 className={styles.sectionHeading}>The VibeRoot Promise</h2>
+            <p className={styles.headerSubtext}>What makes our botanical powders exceptional</p>
+          </div>
+
+          <div className={styles.pillarsGrid}>
             {[
-              { num: "5", label: "Organic Powders" },
-              { num: "1,500+", label: "Happy Customers" },
-              { num: "100%", label: "Organic Certified" },
-              { num: "0", label: "Fillers or Additives" },
-            ].map((stat) => (
-              <div key={stat.label} className={styles.statCard}>
-                <span className={styles.statNum}>{stat.num}</span>
-                <span className={styles.statLabel}>{stat.label}</span>
+              { icon: "🌿", title: "100% Organic Certified", desc: "All products carry full Canadian Organic Regime (COR) and USDA Organic certification, traceable directly to sustainable organic farms." },
+              { icon: "🧪", title: "Triple Lab Tested", desc: "Every batch undergoes independent third-party testing for heavy metals, pesticides, microbials, and active bio-compound concentration." },
+              { icon: "❄️", title: "Cold-Pressed Dehydration", desc: "Processed below 40°C to safeguard delicate digestive enzymes, vitamins, and antioxidants that heat processing destroys." },
+              { icon: "🇨🇦", title: "Canadian Owned & Operated", desc: "Headquartered and packaged in Calgary, AB (Address: VibeRoot Essentials T3P2H4 Calgary, Alberta Canada). Proudly serving wellness shoppers nationwide." },
+              { icon: "♻️", title: "Eco-Conscious Packaging", desc: "Packaged in light-shielding, resealable pouches designed to preserve freshness while minimizing our environmental impact." },
+              { icon: "💬", title: "Direct Customer Care", desc: "Have questions about dosage or recipes? Reach our wellness team directly at +1 (587) 832-0198 or hello@viberootessentials.com." }
+            ].map((pillar, i) => (
+              <div key={i} className={styles.pillarCard}>
+                <div className={styles.pillarIcon}>{pillar.icon}</div>
+                <h3 className={styles.pillarTitle}>{pillar.title}</h3>
+                <p className={styles.pillarDesc}>{pillar.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className={styles.values}>
-        <div className={styles.valuesInner}>
-          <h2 className={styles.valuesTitle}>The VibeRoot Promise</h2>
-          <div className={styles.valuesGrid}>
-            {[
-              { icon: "🌿", title: "100% Organic Certified", desc: "All products carry full Canadian Organic Regime (COR) certification, traceable to the farm." },
-              { icon: "🧪", title: "Triple Lab Tested", desc: "Every batch undergoes independent testing for heavy metals, pesticides, and microbial safety." },
-              { icon: "❄️", title: "Cold-Pressed Preservation", desc: "Below 40°C processing preserves enzymes, vitamins, and bioactive compounds that heat destroys." },
-              { icon: "🇨🇦", title: "Canadian Owned & Operated", desc: "Headquartered and packaged in Calgary, Alberta. Address / Adresse : VibeRoot Essentials T3P2H4 Calgary, Alberta Canada. Proud to serve the Canadian wellness community." },
-              { icon: "♻️", title: "Eco-Conscious Packaging", desc: "Biodegradable, compostable pouches. We're committed to reducing our ecological footprint." },
-              { icon: "💬", title: "Real Human Support", desc: "A real Canadian wellness expert, not a bot, answers your questions via WhatsApp and email." },
-            ].map((v) => (
-              <div key={v.title} className={styles.valueCard}>
-                <span className={styles.valueIcon}>{v.icon}</span>
-                <h3 className={styles.valueTitle}>{v.title}</h3>
-                <p className={styles.valueDesc}>{v.desc}</p>
-              </div>
-            ))}
+      {/* CTA Section */}
+      <section className={styles.ctaSection}>
+        <div className={styles.container}>
+          <div className={styles.ctaBox}>
+            <h2>Ready to Elevate Your Daily Wellness Ritual?</h2>
+            <p>Experience the pure difference of cold-pressed organic powders delivered straight to your door.</p>
+            <Link href="/shop" className={styles.ctaBtn}>
+              Explore Organic Powders &rarr;
+            </Link>
           </div>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className={styles.cta}>
-        <h2 className={styles.ctaTitle}>Ready to Start Your VibeRoot Journey?</h2>
-        <p className={styles.ctaSubtitle}>Join over 1,500 Canadians who have made organic superfoods a daily ritual.</p>
-        <a href="/shop" className={styles.ctaBtn}>Shop All Products →</a>
       </section>
     </div>
   );

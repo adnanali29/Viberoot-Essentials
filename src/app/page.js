@@ -1,156 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { PRODUCTS } from "@/lib/products";
 import Image from "next/image";
 import styles from "./page.module.css";
-
-const PRODUCTS = [
-{
-    id: "raspberry",
-    amazonUrl: "https://www.amazon.ca/dp/B0HHNWY8MG",
-    name: "Organic Raspberry Powder",
-    displayName: "Raspberry Powder",
-    images: ["/10.webp", "/product_card_rasp.webp", "/11.webp", "/12.webp"],
-    prices: { "125g": 14.99, "250g": 24.99, "500g": 44.99 },
-    originalPrices: { "125g": 17.59, "250g": 29.39, "500g": 52.89 },
-    color: "#e4053a",
-    lightColor: "rgba(228, 5, 58, 0.05)",
-    hoverColor: "#c40432",
-    tagline: "Antioxidant powerhouse made from vine-ripened organic berries.",
-    description: "Viberoot Organic Raspberry Powder is a vibrant, nutrient-dense superfood crafted from pure, freeze-dried organic raspberries. Packed with Vitamin C, dietary fiber, and powerful antioxidants, it brings a bright, tangy berry flavor to your daily wellness routine with zero added sugar or preservatives.",
-    benefits: ["Rich in Antioxidants", "Supports Cellular Health", "Boosts Natural Collagen"],
-    healthGoals: ["Immunity", "Hair & Skin"],
-    rating: 4.9,
-    reviews: 320,
-    nutrition: { Calories: "40 kcal", "Vitamin C": "35% DV", Fiber: "4g", Sugars: "0g Added" },
-    ingredients: "100% Certified Organic Freeze-Dried Red Raspberry Powder.",
-    pairing: "Perfect paired with oat milk, vanilla protein, or blended into coconut yogurt.",
-    ingredientBoxes: ["🍓 100% Fruit", "🛡️ Antioxidant", "✨ Collagen Boost"],
-    recipe: {
-      title: "Raspberry Rose Smoothie Bowl",
-      image: "/recipe_raspberry_rose.webp",
-      time: "5 Min",
-      ingredients: ["1 tbsp Raspberry Powder", "1 cup frozen mixed berries", "1 frozen banana", "1/2 cup almond milk"],
-      steps: "Blend all base ingredients until thick and creamy. Pour into a glass and serve fresh."
-    }
-  },
-{
-    id: "pineapple",
-    amazonUrl: "https://www.amazon.ca/dp/B0HHXD2P1J",
-    name: "Organic Pineapple Fruit Juice Powder",
-    displayName: "Pineapple Fruit Juice Powder",
-    images: ["/13.webp", "/product_card_pine.webp", "/14.webp", "/15.webp"],
-    prices: { "125g": 16.99, "250g": 27.99, "500g": 49.99 },
-    originalPrices: { "125g": 19.99, "250g": 32.99, "500g": 58.89 },
-    color: "#f0af02",
-    lightColor: "rgba(240, 175, 2, 0.05)",
-    hoverColor: "#c59002",
-    tagline: "Tropical energy boost loaded with active digestive enzymes.",
-    description: "Bring the tropical sunshine to your kitchen. Made from ripe, organic pineapples, this powder is naturally sweet and rich in Bromelain—a powerful digestive enzyme—and Vitamin C. It dissolves effortlessly, making it the perfect nutrient boost for refreshers, pre-workout drinks, or morning fruit bowls.",
-    benefits: ["Aids Protein Digestion", "Natural Energy Boost", "High in Vitamin C"],
-    healthGoals: ["Digestion", "Energy"],
-    rating: 4.8,
-    reviews: 180,
-    nutrition: { Calories: "45 kcal", Bromelain: "Active Enzymes", "Vitamin C": "40% DV", Potassium: "6% DV" },
-    ingredients: "100% Certified Organic Spray-Dried Pineapple Juice Powder.",
-    pairing: "Pairs beautifully with ginger, green tea, or blended into green smoothies.",
-    ingredientBoxes: ["🍍 Active Enzyme", "⚡ Energy Boost", "🥬 Easy Digestion"],
-    recipe: {
-      title: "Tropical Pineapple Detox",
-      image: "/recipe_pineapple_detox.webp",
-      time: "5 Min",
-      ingredients: ["1 tbsp Pineapple Powder", "1 cup chilled coconut water", "1/2 inch fresh ginger", "Squeeze of lime juice"],
-      steps: "Combine all ingredients in a blender or shaker. Blend until smooth. Serve over ice."
-    }
-  },
-{
-    id: "ginger",
-    amazonUrl: "https://www.amazon.ca/s?k=viberoot+organic+ginger+powder",
-    name: "Organic Ginger Root Powder",
-    displayName: "Ginger Root Powder",
-    images: ["/19.webp", "/product_card_ginger.webp", "/20.webp", "/21.webp"],
-    prices: { "125g": 12.99, "250g": 20.99, "500g": 36.99 },
-    originalPrices: { "125g": 15.29, "250g": 24.99, "500g": 43.49 },
-    color: "#b46e31",
-    lightColor: "rgba(180, 110, 49, 0.05)",
-    hoverColor: "#935722",
-    tagline: "Warm, spicy, and soothing powder for immune and gut support.",
-    description: "Viberoot Organic Ginger Root Powder is carefully dried and finely ground to preserve its intense warmth and bioactive gingerols. Highly revered for its anti-inflammatory and soothing digestive properties, it is the ultimate warming addition to wellness teas, morning elixirs, stir-fries, and spiced bakes.",
-    benefits: ["Powerful Anti-inflammatory", "Soothes Digestion", "Supports Immune Defense"],
-    healthGoals: ["Immunity", "Digestion"],
-    rating: 4.7,
-    reviews: 260,
-    nutrition: { Calories: "10 kcal", Gingerols: "Active Compounds", Calcium: "2% DV", Iron: "4% DV" },
-    ingredients: "100% Certified Organic Ground Ginger Root.",
-    pairing: "Perfect with honey, lemon, hot water, or blended with pineapple.",
-    ingredientBoxes: ["🔥 Bio-Gingerols", "🤢 Anti-Nausea", "🛡️ Gut Support"],
-    recipe: {
-      title: "Golden Ginger Immunity Shot",
-      image: "/recipe_ginger_immunity.webp",
-      time: "5 Min",
-      ingredients: ["1 tsp Ginger Powder", "1 lemon (juiced)", "1/2 cup warm water", "1/2 tsp maple syrup"],
-      steps: "Mix all ingredients together in a glass. Drink immediately in the morning for a warming boost."
-    }
-  },
-{
-    id: "beetroot",
-    amazonUrl: "https://www.amazon.ca/dp/B0HHXN6MG7",
-    name: "Organic Beetroot Powder",
-    displayName: "Beetroot Powder",
-    images: ["/16.webp", "/product_card_beetroot.webp", "/17.webp", "/18.webp"],
-    prices: { "125g": 12.99, "250g": 20.99, "500g": 36.99 },
-    originalPrices: { "125g": 15.29, "250g": 24.99, "500g": 43.49 },
-    color: "#9b2e36",
-    lightColor: "rgba(155, 46, 54, 0.05)",
-    hoverColor: "#7c2228",
-    tagline: "Pure circulation and stamina booster from premium organic beets.",
-    description: "A favorite among athletes and wellness enthusiasts. Viberoot Organic Beetroot Powder is loaded with dietary nitrates that help optimize blood circulation, lower blood pressure, and boost natural athletic performance. Its earthy, sweet profile adds depth and vitality to pre-workouts and morning elixirs.",
-    benefits: ["Optimizes Blood Flow", "Enhances Athletic Stamina", "Natural Nitric Oxide Booster"],
-    healthGoals: ["Energy", "Detox"],
-    rating: 4.9,
-    reviews: 410,
-    nutrition: { Calories: "35 kcal", Nitrates: "High Activity", Iron: "8% DV", Folate: "12% DV" },
-    ingredients: "100% Certified Organic Dehydrated Beetroot Powder.",
-    pairing: "Blends well with raw cacao, ginger, or in warm almond milk lattes.",
-    ingredientBoxes: ["🩸 High Nitrates", "💪 Stamina Boost", "❤️ Heart Health"],
-    recipe: {
-      title: "Beetroot Pre-Workout Latte",
-      image: "/recipe_beetroot_latte.webp",
-      time: "5 Min",
-      ingredients: ["1 tbsp Beetroot Powder", "1 cup plant milk (warm or cold)", "1 tsp raw honey or maple syrup", "1/4 tsp cinnamon"],
-      steps: "Whisk or blend all ingredients together until frothy. Perfect as a pre-workout drink."
-    }
-  },
-{
-    id: "wheatgrass",
-    amazonUrl: "https://www.amazon.ca/dp/B0HHY25VNZ",
-    name: "Organic Wheat Grass Powder",
-    displayName: "Wheat Grass Powder",
-    images: ["/23.webp", "/product_card_wheat.webp", "/24.webp", "/25.webp"],
-    prices: { "125g": 13.49, "250g": 21.99, "500g": 38.99 },
-    originalPrices: { "125g": 15.99, "250g": 25.99, "500g": 45.89 },
-    color: "#465034",
-    lightColor: "rgba(70, 80, 52, 0.05)",
-    hoverColor: "#333d26",
-    tagline: "Alkalizing green powerhouse rich in chlorophyll and essential minerals.",
-    description: "Grown in nutrient-dense organic soils, our Wheat Grass is harvested at its nutritional peak and cold-pressed into a fine, bright green powder. High in chlorophyll, plant proteins, and iron, it helps cleanse the system, support digestion, and alkalize your body for sustained daily vitality.",
-    benefits: ["Alkalizes & Cleanses", "High in Active Chlorophyll", "Supports Liver Detoxification"],
-    healthGoals: ["Detox", "Digestion"],
-    rating: 4.9,
-    reviews: 350,
-    nutrition: { Calories: "25 kcal", Chlorophyll: "180mg", Protein: "2g", Iron: "15% DV" },
-    ingredients: "100% Certified Organic Young Wheat Grass Powder.",
-    pairing: "Best blended with cold apple juice, orange juice, or green apples.",
-    ingredientBoxes: ["🌿 Chlorophyll", "🧪 Alkalizer", "🧹 Daily Detox"],
-    recipe: {
-      title: "Wheatgrass Morning Shot",
-      image: "/recipe_wheatgrass_shot.webp",
-      time: "5 Min",
-      ingredients: ["1 tbsp Wheat Grass Powder", "1 cup fresh apple juice", "1/2 cucumber (sliced)", "Squeeze of fresh lemon"],
-      steps: "Blend the cucumber with apple juice and wheat grass powder. Strain and squeeze fresh lemon over top."
-    }
-  }
-];
 
 const PROMISE_VIDEOS = [
   { src: "/videos/video2.mp4", title: "Organic Berries & Fruit Sourcing" },
@@ -159,6 +12,110 @@ const PROMISE_VIDEOS = [
   { src: "/videos/video4.mp4", title: "Eco-Friendly Small Batching in Canada" },
   { src: "/videos/video3.mp4", title: "Pure Superfood Elixirs & Smoothies" }
 ];
+
+
+function RecipeSectionSlider({ onSelectRecipe }) {
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const onMouseDown = (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    };
+
+    const onMouseLeave = () => { isDown = false; };
+    const onMouseUp = () => { isDown = false; };
+
+    const onMouseMove = (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      slider.scrollLeft = scrollLeft - walk;
+    };
+
+    slider.addEventListener("mousedown", onMouseDown);
+    slider.addEventListener("mouseleave", onMouseLeave);
+    slider.addEventListener("mouseup", onMouseUp);
+    slider.addEventListener("mousemove", onMouseMove);
+
+    return () => {
+      slider.removeEventListener("mousedown", onMouseDown);
+      slider.removeEventListener("mouseleave", onMouseLeave);
+      slider.removeEventListener("mouseup", onMouseUp);
+      slider.removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
+
+  const slide = (dir) => {
+    if (sliderRef.current) {
+      const scrollAmt = 320;
+      sliderRef.current.scrollBy({ left: dir === "next" ? scrollAmt : -scrollAmt, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <section id="recipes" className={styles.recipesSectionFull}>
+      {/* Top Banner Header matching Image 4 & Image 5 */}
+      <div className={styles.recipesHeaderBanner}>
+        <span className={styles.recipesBannerOverline}>🌱 ORGANIC RECIPES</span>
+        <h2 className={styles.recipesBannerTitle}>Nourish Your Body One Recipe at a Time</h2>
+        <p className={styles.recipesBannerDisclaimer}>
+          NOTE: All dish images are for illustration purposes only. Final dish appearance may vary from person to person.
+        </p>
+      </div>
+
+      {/* Slider Viewport with Manual Touch/Mouse Drag */}
+      <div className={styles.recipesSliderContainer}>
+        <button className={styles.recipeNavBtnPrev} onClick={() => slide("prev")} aria-label="Previous recipes">‹</button>
+        <button className={styles.recipeNavBtnNext} onClick={() => slide("next")} aria-label="Next recipes">›</button>
+        
+        <div className={styles.recipesSliderTrack} ref={sliderRef}>
+          {ALL_RECIPES.map((item) => (
+            <div 
+              key={item.id} 
+              className={styles.recipeCardItem}
+              onClick={() => onSelectRecipe({ recipe: item, product: item.product })}
+            >
+              <div className={styles.recipeCardImgWrap}>
+                <Image 
+                  src={item.image || "/recipe_raspberry_rose.webp"} 
+                  alt={item.title || item.product?.displayName || "VibeRoot Organic Recipe Image"} 
+                  fill 
+                  sizes="(max-width: 768px) 80vw, 280px"
+                  className={styles.recipeCardImgTag} 
+                />
+
+              </div>
+              <div className={styles.recipeCardBody}>
+                <div className={styles.recipeMetaRow}>
+                  <span className={styles.recipeDrinkPill}>RECIPE</span>
+                  <span className={styles.recipeTimePill}>⏱️ {item.time}</span>
+                </div>
+                <h3 className={styles.recipeItemTitle}>{item.title}</h3>
+                <div className={styles.recipeCardFooterRow}>
+                  <span className={styles.recipeDiff}>Easy</span>
+                  <span className={styles.recipeArrowCircle} style={{ background: item.product.lightColor, color: item.product.color }}>→</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className={styles.viewAllRecipesFooter}>
+        <a href="/recipes" className={styles.viewAllRecipesLink}>VIEW ALL RECIPES &rarr;</a>
+      </div>
+    </section>
+  );
+}
 
 function PromiseVideoCard() {
   const [currentVideoIdx, setCurrentVideoIdx] = useState(0);
@@ -266,12 +223,18 @@ const renderStars = (rating) => {
   return "★ ★ ★ ★ ★";
 };
 
+
+const ALL_RECIPES = PRODUCTS.flatMap((p) => [
+  p.recipe ? { ...p.recipe, product: p, id: p.id + "-1" } : null,
+  p.recipe2 ? { ...p.recipe2, product: p, id: p.id + "-2" } : null
+]).filter(Boolean);
+
 const HERO_SLIDES = [
-  { id: 1, image: "/1.webp", title: "VibeRoot Banner 1" },
-  { id: 2, image: "/2.webp", title: "VibeRoot Banner 2" },
-  { id: 3, image: "/3.webp", title: "VibeRoot Banner 3" },
-  { id: 4, image: "/4.webp", title: "VibeRoot Banner 4" },
-  { id: 5, image: "/5.webp", title: "VibeRoot Banner 5" }
+  { id: 1, image: "/1.png", title: "VibeRoot Organic Superfood Powder Banner 1" },
+  { id: 2, image: "/2.png", title: "VibeRoot Organic Superfood Powder Banner 2" },
+  { id: 3, image: "/3.png", title: "VibeRoot Organic Superfood Powder Banner 3" },
+  { id: 4, image: "/4.png", title: "VibeRoot Organic Superfood Powder Banner 4" },
+  { id: 5, image: "/5.png", title: "VibeRoot Organic Superfood Powder Banner 5" }
 ];
 
 const TESTIMONIALS = [
@@ -729,9 +692,10 @@ export default function Home() {
               <div className={styles.slideImageContainer}>
                 <Image 
                   src={slide.image} 
-                  alt={slide.title}
+                  alt={slide.title || "VibeRoot Essential Superfood Banner"}
                   fill
-                  priority={index === 0}
+                  priority={true}
+                  unoptimized={true}
                   className={styles.slideImg}
                 />
               </div>
@@ -939,56 +903,7 @@ export default function Home() {
       <PromiseVideoCard />
 
       {/* 6. Recipes Section */}
-      <section id="recipes" className={styles.recipesSection}>
-        <div className={styles.recipesLayoutGrid}>
-          <div className={styles.recipesLeftIntro}>
-            <span className={styles.recipesOverline}>HEALTHY & DELICIOUS 🍃</span>
-            <h2 className={styles.recipesMainTitle}>Recipes To <br />Inspire You</h2>
-            <a href="/recipes" className={styles.viewAllRecipesBtn} style={{ textDecoration: "none", display: "inline-block" }}>VIEW ALL RECIPES &rarr;</a>
-          </div>
-
-          <div className={styles.recipesRowList}>
-            {PRODUCTS.slice(0, 4).map((prod) => {
-              const recipeImage = prod.recipe.image || "/recipe_raspberry_rose.webp";
-
-              return (
-                <a 
-                  key={prod.id} 
-                  href={`/recipes?product=${prod.id}`}
-                  className={styles.recipeCard} 
-                  style={{ textDecoration: "none", color: "inherit", "--recipe-accent": prod.color }}
-                >
-                  <div className={styles.recipeCardImageContainer}>
-                    <Image 
-                      src={recipeImage}
-                      alt={prod.recipe.title}
-                      fill
-                      sizes="(max-width: 600px) 100vw, 25vw"
-                      className={styles.recipeCardImg}
-                    />
-                    <div className={styles.recipeCardOverlayTag}>
-                      <span>{prod.displayName.split(" ")[0]}</span>
-                    </div>
-                  </div>
-                  <div className={styles.recipeCardContent}>
-                    <div className={styles.recipeCardHeaderRow}>
-                      <span className={styles.recipeDrinkTag}>DRINK</span>
-                      <span className={styles.recipeCardTimePill}>⏱️ {prod.recipe.time}</span>
-                    </div>
-                    <h4 className={styles.recipeCardTitle}>{prod.recipe.title}</h4>
-                    <div className={styles.recipeCardFooter}>
-                      <span className={styles.recipeCardDifficulty}>Easy</span>
-                      <span className={styles.recipeCircleArrowBtn}>
-                        →
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <RecipeSectionSlider onSelectRecipe={setSelectedRecipe} />
 
       {/* 7. Customer Testimonials Section ("Here's What Our Customers Have To Say About Us") */}
       <section id="testimonials" className={styles.testimonialsSection}>
@@ -1204,7 +1119,7 @@ export default function Home() {
               <div className={styles.recipeModalImgWrap}>
                 <Image 
                   src={selectedRecipe.recipe.image || "/recipe_raspberry_rose.webp"} 
-                  alt={selectedRecipe.recipe.title}
+                  alt={selectedRecipe?.recipe?.title || selectedRecipe?.title || "VibeRoot Organic Recipe Detail"}
                   fill
                   style={{ objectFit: "cover" }}
                 />
@@ -1265,8 +1180,8 @@ export default function Home() {
           onClick={() => setIsChatOpen(!isChatOpen)}
           aria-label="Open WhatsApp Support"
         >
-          <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.739-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.966C16.59 1.977 14.113.953 11.488.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.83.504 3.614 1.46 5.178l-1.02 3.722 3.824-.997s.005-.001.005-.002zM18.8 14.88c-.3-.15-1.782-.879-2.057-.978-.276-.1-.476-.15-.676.15-.2.3-.776.979-.95 1.178-.176.2-.351.226-.652.075-.3-.15-1.269-.467-2.417-1.492-.892-.797-1.494-1.782-1.67-2.082-.175-.3-.018-.463.13-.612.134-.133.3-.349.45-.523.15-.175.2-.299.3-.5.1-.2.05-.375-.025-.524-.075-.15-.676-1.629-.926-2.228-.243-.585-.49-.506-.676-.516-.175-.008-.375-.01-.575-.01-.2 0-.525.075-.8.376-.275.3-1.05 1.026-1.05 2.5 0 1.475 1.075 2.899 1.225 3.099.15.2 2.11 3.224 5.116 4.525.715.31 1.273.495 1.71.635.718.228 1.368.196 1.884.118.574-.088 1.782-.728 2.033-1.43.25-.701.25-1.3.175-1.429-.075-.13-.275-.205-.575-.355z" />
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#ffffff">
+            <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 2.217.72 4.267 1.942 5.926L2.6 21.4l3.585-1.328A9.957 9.957 0 0012 22.035c5.523 0 10-4.484 10-10.018C22 6.484 17.523 2 12 2zm5.83 14.156c-.244.685-1.417 1.309-1.977 1.394-.52.078-1.187.11-3.613-.878-3.08-1.256-5.06-4.382-5.213-4.587-.153-.205-1.246-1.658-1.246-3.161 0-1.503.785-2.242 1.064-2.548.279-.306.608-.383.811-.383.203 0 .406.002.584.01.19.009.444-.072.695.53.254.606.863 2.106.94 2.259.076.153.127.332.025.535-.101.204-.152.332-.304.51-.153.179-.321.399-.459.535-.152.153-.31.321-.133.626.177.306.787 1.3 1.688 2.103 1.157 1.031 2.133 1.35 2.438 1.503.305.153.483.127.66-.076.178-.204.762-.892.965-1.198.203-.306.406-.255.685-.153.28.102 1.776.837 2.08 1.002.304.165.508.244.584.372.076.128.076.741-.168 1.426z" />
           </svg>
         </button>
 
