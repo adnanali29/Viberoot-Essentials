@@ -230,11 +230,11 @@ const ALL_RECIPES = PRODUCTS.flatMap((p) => [
 ]).filter(Boolean);
 
 const HERO_SLIDES = [
-  { id: 1, image: "/1.png", title: "VibeRoot Organic Superfood Powder Banner 1" },
-  { id: 2, image: "/2.png", title: "VibeRoot Organic Superfood Powder Banner 2" },
-  { id: 3, image: "/3.png", title: "VibeRoot Organic Superfood Powder Banner 3" },
-  { id: 4, image: "/4.png", title: "VibeRoot Organic Superfood Powder Banner 4" },
-  { id: 5, image: "/5.png", title: "VibeRoot Organic Superfood Powder Banner 5" }
+  { id: 1, image: "/1.webp", title: "VibeRoot Organic Superfood Powder Banner 1" },
+  { id: 2, image: "/2.webp", title: "VibeRoot Organic Superfood Powder Banner 2" },
+  { id: 3, image: "/3.webp", title: "VibeRoot Organic Superfood Powder Banner 3" },
+  { id: 4, image: "/4.webp", title: "VibeRoot Organic Superfood Powder Banner 4" },
+  { id: 5, image: "/5.webp", title: "VibeRoot Organic Superfood Powder Banner 5" }
 ];
 
 const TESTIMONIALS = [

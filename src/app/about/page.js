@@ -13,7 +13,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className={styles.heroBannerImageWrap}>
         <Image 
-          src="/hero_about_hd.png" unoptimized 
+          src="/hero_about_hd.webp" unoptimized 
           alt="About VibeRoot Essentials Banner" 
           fill 
           priority 

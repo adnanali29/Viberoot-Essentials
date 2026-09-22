@@ -118,7 +118,7 @@ export default function ShopPage() {
       {/* Hero Banner */}
       <section className={styles.heroBannerImageWrap}>
         <Image 
-          src="/hero_shop_v3.png" unoptimized 
+          src="/hero_shop_v3.webp" unoptimized 
           alt="VibeRoot Organic Powders Shop Banner" 
           fill 
           priority 

@@ -32,7 +32,7 @@ export default function RecipesPage() {
       {/* Hero */}
       <section className={styles.heroBannerImageWrap}>
         <Image 
-          src="/hero_recipes_hd.png" unoptimized 
+          src="/hero_recipes_hd.webp" unoptimized 
           alt="VibeRoot Organic Recipes Banner" 
           fill 
           priority 

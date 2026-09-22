@@ -23,7 +23,7 @@ export default function BulkOrderPage() {
       {/* Hero */}
       <section className={styles.heroBannerImageWrap}>
         <Image 
-          src="/hero_bulk_hd.png" unoptimized 
+          src="/hero_bulk_hd.webp" unoptimized 
           alt="VibeRoot Bulk Buy Banner" 
           fill 
           priority 

@@ -19,7 +19,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className={styles.heroBannerImageWrap}>
         <Image 
-          src="/hero_contact_hd.png" unoptimized 
+          src="/hero_contact_hd.webp" unoptimized 
           alt="Contact VibeRoot Essentials Banner" 
           fill 
           priority 
