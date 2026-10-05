@@ -1,5 +1,5 @@
 export const PRODUCTS = [
-{
+  {
     id: "raspberry",
     amazonUrl: "https://www.amazon.ca/dp/B0HHNWY8MG",
     name: "Organic Raspberry Powder",
@@ -11,13 +11,18 @@ export const PRODUCTS = [
     lightColor: "rgba(228, 5, 58, 0.08)",
     hoverColor: "#c40432",
     tagline: "Antioxidant powerhouse made from vine-ripened organic berries.",
-    description: "Viberoot Organic Raspberry Powder is a vibrant, nutrient-dense superfood crafted from pure, freeze-dried organic raspberries. Packed with Vitamin C, dietary fiber, and powerful antioxidants, it brings a bright, tangy berry flavor to your daily wellness routine with zero added sugar or preservatives.",
-    benefits: ["Rich in Antioxidants", "Supports Cellular Health", "Boosts Natural Collagen"],
+    description: "Viberoot Organic Raspberry Powder is a vibrant, nutrient-dense superfood crafted from pure, spray-dried organic raspberries. Packed with Vitamin C, dietary fiber, and powerful antioxidants, it brings a bright, tangy berry flavor to your daily wellness routine with zero added sugar or preservatives.",
+    benefits: ["Naturally Rich in Antioxidants", "Supports Daily Vitality", "Refreshing Berry Flavor"],
     healthGoals: ["Immunity", "Hair & Skin"],
     rating: 4.9,
     reviews: 320,
-    nutrition: { Calories: "40 kcal", "Vitamin C": "35% DV", Fiber: "4g", Sugars: "0g Added" },
-    ingredients: "100% Certified Organic Freeze-Dried Red Raspberry Powder.",
+    nutrition: {
+      "Form": "Spray Dried Powder",
+      "Quality": "100% Certified Organic",
+      "Added Sugar": "0g (Naturally Sweet)",
+      "Additives": "None (Zero Preservatives)"
+    },
+    ingredients: "100% Certified Organic spray-dried Red Raspberry Powder.",
     pairing: "Perfect paired with oat milk, vanilla protein, or blended into coconut yogurt.",
     recipe: {
       title: "Raspberry Rose Smoothie Bowl",
@@ -36,7 +41,7 @@ export const PRODUCTS = [
       steps: "Whisk Raspberry Powder into lemon juice until dissolved. Add chilled water, sweetener, and stir well. Serve over ice with fresh mint."
     }
   },
-{
+  {
     id: "pineapple",
     amazonUrl: "https://www.amazon.ca/dp/B0HHXD2P1J",
     name: "Organic Pineapple Fruit Juice Powder",
@@ -49,11 +54,16 @@ export const PRODUCTS = [
     hoverColor: "#c59002",
     tagline: "Tropical energy boost loaded with active digestive enzymes.",
     description: "Bring the tropical sunshine to your kitchen. Made from ripe, organic pineapples, this powder is naturally sweet and rich in Bromelain—a powerful digestive enzyme—and Vitamin C. It dissolves effortlessly, making it the perfect nutrient boost for refreshers, pre-workout drinks, or morning fruit bowls.",
-    benefits: ["Aids Protein Digestion", "Natural Energy Boost", "High in Vitamin C"],
+    benefits: ["Natural Tropical Refreshment", "Supports Daily Digestion", "Naturally Rich in Vitamin C"],
     healthGoals: ["Digestion", "Energy"],
     rating: 4.8,
     reviews: 180,
-    nutrition: { Calories: "45 kcal", Bromelain: "Active Enzymes", "Vitamin C": "40% DV", Potassium: "6% DV" },
+    nutrition: {
+      "Form": "Spray Dried Powder",
+      "Quality": "100% Certified Organic",
+      "Added Sugar": "0g (Naturally Sweet)",
+      "Additives": "None (Zero Fillers & Additives)"
+    },
     ingredients: "100% Certified Organic Spray-Dried Pineapple Juice Powder.",
     pairing: "Pairs beautifully with ginger, green tea, or blended into green smoothies.",
     recipe: {
@@ -73,9 +83,9 @@ export const PRODUCTS = [
       steps: "Mix Pineapple Powder into coconut milk. Stir in chia seeds and sweetener. Refrigerate 2 hours or overnight. Top with fresh pineapple."
     }
   },
-{
+  {
     id: "ginger",
-    amazonUrl: "https://www.amazon.ca/s?k=viberoot+organic+ginger+powder",
+    amazonUrl: "https://www.amazon.ca/dp/B0HHY3JHQ5",
     name: "Organic Ginger Root Powder",
     displayName: "Ginger Root Powder",
     images: ["/19.webp", "/product_card_ginger.webp", "/20.webp", "/21.webp"],
@@ -86,11 +96,16 @@ export const PRODUCTS = [
     hoverColor: "#935722",
     tagline: "Warm, spicy, and soothing powder for immune and gut support.",
     description: "Viberoot Organic Ginger Root Powder is carefully dried and finely ground to preserve its intense warmth and bioactive gingerols. Highly revered for its anti-inflammatory and soothing digestive properties, it is the ultimate warming addition to wellness teas, morning elixirs, stir-fries, and spiced bakes.",
-    benefits: ["Powerful Anti-inflammatory", "Soothes Digestion", "Supports Immune Defense"],
+    benefits: ["Soothing Warming Spice", "Supports Daily Digestion", "Comforting Daily Ritual"],
     healthGoals: ["Immunity", "Digestion"],
     rating: 4.7,
     reviews: 260,
-    nutrition: { Calories: "10 kcal", Gingerols: "Active Compounds", Calcium: "2% DV", Iron: "4% DV" },
+    nutrition: {
+      "Form": "Spray Dried Powder",
+      "Quality": "100% Certified Organic",
+      "Added Sugar": "0g (Pure Spicy Root)",
+      "Additives": "None (Zero Fillers & Additives)"
+    },
     ingredients: "100% Certified Organic Ground Ginger Root.",
     pairing: "Perfect with honey, lemon, hot water, or blended with pineapple.",
     recipe: {
@@ -110,7 +125,7 @@ export const PRODUCTS = [
       steps: "Brew tea bag in half cup water. Add plant milk, Ginger Powder, and spices. Simmer 3 minutes. Sweeten with honey and serve hot."
     }
   },
-{
+  {
     id: "beetroot",
     amazonUrl: "https://www.amazon.ca/dp/B0HHXN6MG7",
     name: "Organic Beetroot Powder",
@@ -123,11 +138,16 @@ export const PRODUCTS = [
     hoverColor: "#7c2228",
     tagline: "Pure circulation and stamina booster from premium organic beets.",
     description: "A favourite among athletes and wellness enthusiasts. Viberoot Organic Beetroot Powder is loaded with dietary nitrates that help optimize blood circulation, lower blood pressure, and boost natural athletic performance. Its earthy, sweet profile adds depth and vitality to pre-workouts and morning elixirs.",
-    benefits: ["Optimizes Blood Flow", "Enhances Athletic Stamina", "Natural Nitric Oxide Booster"],
+    benefits: ["Supports Daily Stamina", "Earthy Natural Sweetness", "Ideal Pre-Workout Boost"],
     healthGoals: ["Energy", "Detox"],
     rating: 4.9,
     reviews: 410,
-    nutrition: { Calories: "35 kcal", Nitrates: "High Activity", Iron: "8% DV", Folate: "12% DV" },
+    nutrition: {
+      "Form": "Spray Dried Powder",
+      "Quality": "100% Certified Organic",
+      "Added Sugar": "0g (Naturally Sweet)",
+      "Additives": "None (Zero Preservatives)"
+    },
     ingredients: "100% Certified Organic Dehydrated Beetroot Powder.",
     pairing: "Blends well with raw cacao, ginger, or in warm almond milk lattes.",
     recipe: {
@@ -147,7 +167,7 @@ export const PRODUCTS = [
       steps: "Mix Beetroot Powder with almond milk. Stir in oats and chia seeds. Refrigerate overnight. Top with fresh berries and seeds in the morning."
     }
   },
-{
+  {
     id: "wheatgrass",
     amazonUrl: "https://www.amazon.ca/dp/B0HHY25VNZ",
     name: "Organic Wheat Grass Powder",
@@ -160,11 +180,16 @@ export const PRODUCTS = [
     hoverColor: "#333d26",
     tagline: "Alkalizing green powerhouse rich in chlorophyll and essential minerals.",
     description: "Grown in nutrient-dense organic soils, our Wheat Grass is harvested at its nutritional peak and cold-pressed into a fine, bright green powder. High in chlorophyll, plant proteins, and iron, it helps cleanse the system, support digestion, and alkalize your body for sustained daily vitality.",
-    benefits: ["Alkalizes & Cleanses", "High in Active Chlorophyll", "Supports Liver Detoxification"],
+    benefits: ["Supports Daily Green Intake", "Pure Alkaline Greens", "Refreshing Morning Cleanse"],
     healthGoals: ["Detox", "Digestion"],
     rating: 4.9,
     reviews: 350,
-    nutrition: { Calories: "25 kcal", Chlorophyll: "180mg", Protein: "2g", Iron: "15% DV" },
+    nutrition: {
+      "Form": "Spray Dried Powder",
+      "Quality": "100% Certified Organic",
+      "Added Sugar": "0g (Zero Added Sugar)",
+      "Additives": "None (100% Pure Greens)"
+    },
     ingredients: "100% Certified Organic Young Wheat Grass Powder.",
     pairing: "Best blended with cold apple juice, orange juice, or green apples.",
     recipe: {
@@ -253,7 +278,7 @@ export const BLOGS = [
     date: "Jul 10, 2026",
     readTime: "5 min read",
     image: "/product_card_rasp.webp",
-    excerpt: "Discover how natural Vitamin C and ellagic acid in freeze-dried organic raspberries stimulate natural collagen production for healthy skin.",
-    content: "Collagen is the primary structural protein in human skin, hair, and connective tissue. While many collagen supplements derive from animal sources, true skin rejuvenation relies on Vitamin C and antioxidants to synthesize collagen naturally. Organic red raspberries contain exceptionally high levels of Vitamin C and ellagic acid — a polyphenolic compound that inhibits collagen breakdown caused by UV exposure. Adding 1-2 tablespoons of organic freeze-dried raspberry powder to morning yogurt or oats delivers a vibrant antioxidant shield."
+    excerpt: "Discover how natural Vitamin C and ellagic acid in spray-dried organic raspberries stimulate natural collagen production for healthy skin.",
+    content: "Collagen is the primary structural protein in human skin, hair, and connective tissue. While many collagen supplements derive from animal sources, true skin rejuvenation relies on Vitamin C and antioxidants to synthesize collagen naturally. Organic red raspberries contain exceptionally high levels of Vitamin C and ellagic acid — a polyphenolic compound that inhibits collagen breakdown caused by UV exposure. Adding 1-2 tablespoons of organic spray-dried raspberry powder to morning yogurt or oats delivers a vibrant antioxidant shield."
   }
 ];

@@ -52,7 +52,7 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4 className={styles.footerColTitle}>Get In Touch</h4>
           <p className={styles.footerContactItem}>📍 Address / Adresse : VibeRoot Essentials T3P2H4 Calgary, Alberta Canada</p>
-          <p className={styles.footerContactItem}>📧 hello@viberootessentials.com</p>
+          <p className={styles.footerContactItem}>📧 sales@viberootessentials.com</p>
           <p className={styles.footerContactItem}>📞 +1 (587) 832-0198</p>
           <a
             href="https://wa.me/15878320198"

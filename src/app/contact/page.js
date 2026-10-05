@@ -36,7 +36,7 @@ export default function ContactPage() {
 
             {[
               { icon: "📍", label: "Address / Adresse", value: "Address / Adresse : VibeRoot Essentials T3P2H4 Calgary, Alberta Canada" },
-              { icon: "📧", label: "Email", value: "hello@viberootessentials.com" },
+              { icon: "📧", label: "Email", value: "sales@viberootessentials.com" },
               { icon: "📞", label: "Phone", value: "+1 (587) 832-0198" },
               { icon: "🕐", label: "Hours", value: "Mon–Fri: 9am–6pm EST" },
             ].map((item) => (

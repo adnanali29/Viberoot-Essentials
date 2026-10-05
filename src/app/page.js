@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { PRODUCTS } from "@/lib/products";
 import Image from "next/image";
+import ProductModal from "@/components/ProductModal";
 import styles from "./page.module.css";
 
 const PROMISE_VIDEOS = [
@@ -384,7 +385,7 @@ const TREASURES = [
   {
     id: 2,
     title: "Low-Temperature Active Dehydration",
-    desc: "We freeze-dry and dehydrate our fresh raw plants below 40°C. This ensures that every cell wall preserves its vital digestive enzymes, anti-inflammatory compounds, and vitamins."
+    desc: "We spray-dry and dehydrate our fresh raw plants below 40°C. This ensures that every cell wall preserves its vital digestive enzymes, anti-inflammatory compounds, and vitamins."
   },
   {
     id: 3,
@@ -703,20 +704,7 @@ export default function Home() {
           ))}
         </div>
         
-        <button 
-          className={`${styles.carouselArrow} ${styles.carouselArrowPrev}`} 
-          onClick={() => setActiveSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
-          aria-label="Previous Slide"
-        >
-          ‹
-        </button>
-        <button 
-          className={`${styles.carouselArrow} ${styles.carouselArrowNext}`} 
-          onClick={() => setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length)}
-          aria-label="Next Slide"
-        >
-          ›
-        </button>
+        
 
         <div className={styles.carouselDots}>
           {HERO_SLIDES.map((_, index) => (
@@ -1026,89 +1014,9 @@ export default function Home() {
 
       {/* 12. Quick View Modal */}
       {selectedProduct && (
-        <div className={styles.modalOverlay} onClick={() => setSelectedProduct(null)}>
-          <div className={styles.modalBody} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.modalCloseBtn} onClick={() => setSelectedProduct(null)}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            
-            <div className={styles.modalGrid}>
-              <div className={styles.modalLeft}>
-                <div className={styles.modalHalfHalfContainer}>
-                  <div className={styles.modalHalfItem}>
-                    <Image 
-                      src={selectedProduct.images ? selectedProduct.images[0] : "/10.webp"} 
-                      alt={`${selectedProduct.name} View 1`} 
-                      fill 
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      className={styles.modalHalfImg} 
-                    />
-                  </div>
-                  <div className={styles.modalHalfItem}>
-                    <Image 
-                      src={selectedProduct.images ? selectedProduct.images[1] : "/11.webp"} 
-                      alt={`${selectedProduct.name} View 2`} 
-                      fill 
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      className={styles.modalHalfImg} 
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.modalRight}>
-                <span className={styles.modalCategory}>VIBEROOT PREMIUM SUPERFOODS</span>
-                <h2>{selectedProduct.name}</h2>
-                <div className={styles.modalPriceRow}>
-                  <span className={styles.modalPrice}>C$ {selectedProduct.prices["250g"]}</span>
-                  <span className={styles.modalSize}>250g stand-up pouch</span>
-                </div>
-                <p className={styles.modalDescription}>{selectedProduct.description}</p>
-                
-                <div className={styles.modalIngredients}>
-                  <h5>Ingredients:</h5>
-                  <p>{selectedProduct.ingredients}</p>
-                </div>
-
-                <div className={styles.modalBenefits}>
-                  <h5>Key Health Benefits:</h5>
-                  <ul>
-                    {selectedProduct.benefits.map((benefit, i) => (
-                      <li key={i}>{benefit}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                                <div className={styles.modalNutritionBox}>
-                  <h4>Nutritional Profile (per 5g serving)</h4>
-                  <ul>
-                    {Object.entries(selectedProduct.nutrition).map(([key, val]) => (
-                      <li key={key}>
-                        <span>{key}</span>
-                        <strong>{val}</strong>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className={styles.modalActions}>
-                  <a 
-                    href={selectedProduct.amazonUrl || "https://www.amazon.ca"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.modalAddBtn}
-                    style={{ textDecoration: "none", display: "inline-block", textAlign: "center" }}
-                  >
-                    Buy Now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
       )}
 
-      
       {/* Recipe Details Modal Popup */}
       {selectedRecipe && (
         <div className={styles.modalOverlay} onClick={() => setSelectedRecipe(null)}>

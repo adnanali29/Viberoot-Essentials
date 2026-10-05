@@ -32,11 +32,11 @@ export default function AboutPage() {
                 VibeRoot Essentials was born in Calgary, Alberta with a clear, uncompromising vision: to bring honest, unadulterated plant nutrition back into daily Canadian life.
               </p>
               <p className={styles.paragraph}>
-                In an industry filled with synthetic additives, artificial sweeteners, and mystery blend fillers, we chose total transparency. Every single scoop of our powders contains 100% pure, freeze-dried or cold-pressed organic botanicals — harvested at peak potency to preserve living enzymes and vital micro-nutrients.
+                In an industry filled with synthetic additives, artificial sweeteners, and mystery blend fillers, we chose total transparency. Every single scoop of our powders contains 100% pure, Spray -dried or cold-pressed organic botanicals harvested at peak potency to preserve living enzymes and vital micro-nutrients.
               </p>
 
               <div className={styles.highlightQuoteBox}>
-                <p>"We believe true health starts at the root. No shortcuts, no compromises — just raw plant power from nature to your glass."</p>
+                <p>"We believe true health starts at the root. No shortcuts, no compromises just raw plant power from nature to your glass."</p>
               </div>
             </div>
 
@@ -124,7 +124,7 @@ export default function AboutPage() {
               { icon: "❄️", title: "Cold-Pressed Dehydration", desc: "Processed below 40°C to safeguard delicate digestive enzymes, vitamins, and antioxidants that heat processing destroys." },
               { icon: "🇨🇦", title: "Canadian Owned & Operated", desc: "Headquartered and packaged in Calgary, AB (Address: VibeRoot Essentials T3P2H4 Calgary, Alberta Canada). Proudly serving wellness shoppers nationwide." },
               { icon: "♻️", title: "Eco-Conscious Packaging", desc: "Packaged in light-shielding, resealable pouches designed to preserve freshness while minimizing our environmental impact." },
-              { icon: "💬", title: "Direct Customer Care", desc: "Have questions about dosage or recipes? Reach our wellness team directly at +1 (587) 832-0198 or hello@viberootessentials.com." }
+              { icon: "💬", title: "Direct Customer Care", desc: "Have questions about dosage or recipes? Reach our wellness team directly at +1 (587) 832-0198 or sales@viberootessentials.com." }
             ].map((pillar, i) => (
               <div key={i} className={styles.pillarCard}>
                 <div className={styles.pillarIcon}>{pillar.icon}</div>

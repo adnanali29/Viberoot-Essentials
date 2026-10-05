@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { PRODUCTS, getDarkenedColor } from "@/lib/products";
+import ProductModal from "@/components/ProductModal";
 import styles from "./shop.module.css";
 
 function ProductJar({ color, labelName }) {
@@ -179,70 +180,7 @@ export default function ShopPage() {
 
       {/* Product Detail Modal */}
       {selected && (
-        <div className={styles.modalOverlay} onClick={() => setSelected(null)}>
-          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.modalClose} onClick={() => setSelected(null)}>✕</button>
-            <div className={styles.modalGrid}>
-              <div className={styles.modalHalfHalfContainer}>
-                <div className={styles.modalHalfItem}>
-                  <Image 
-                    src={selected.images ? selected.images[0] : "/10.webp"} 
-                    alt={`${selected.name} View 1`} 
-                    fill 
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className={styles.modalHalfImg} 
-                  />
-                </div>
-                <div className={styles.modalHalfItem}>
-                  <Image 
-                    src={selected.images ? selected.images[1] : "/11.webp"} 
-                    alt={`${selected.name} View 2`} 
-                    fill 
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className={styles.modalHalfImg} 
-                  />
-                </div>
-              </div>
-              <div className={styles.modalBody}>
-                <h2 className={styles.modalTitle}>{selected.name}</h2>
-                <div className={styles.cardRating}>
-                  <span className={styles.stars}>★★★★★</span>
-                  <span className={styles.reviewCount}>({selected.reviews} reviews)</span>
-                </div>
-                <p className={styles.modalDesc}>{selected.description}</p>
-                <div className={styles.modalBenefits}>
-                  {selected.benefits.map((b, i) => (
-                    <span key={i} className={styles.benefit}>✓ {b}</span>
-                  ))}
-                </div>
-                <div className={styles.modalNutrition}>
-                  {Object.entries(selected.nutrition).map(([k, v]) => (
-                    <div key={k} className={styles.nutRow}>
-                      <span className={styles.nutKey}>{k}</span>
-                      <span className={styles.nutVal}>{v}</span>
-                    </div>
-                  ))}
-                </div>
-                <p className={styles.modalIngredients}><strong>Ingredients:</strong> {selected.ingredients}</p>
-                <div className={styles.modalFooter}>
-                  <div className={styles.priceBlock}>
-                    <span className={styles.price} style={{ fontSize: "1.4rem" }}>C$ {selected.prices["250g"].toFixed(2)}</span>
-                    <span className={styles.originalPrice}>C$ {selected.originalPrices["250g"].toFixed(2)}</span>
-                  </div>
-                  <a 
-                    href={selected.amazonUrl || "https://www.amazon.ca"} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className={styles.addBtn} 
-                    style={{ padding: "12px 28px", fontSize: "0.95rem", textDecoration: "none", textAlign: "center", display: "inline-block" }}
-                  >
-                    Buy Now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProductModal product={selected} onClose={() => setSelected(null)} />
       )}
 
       {/* Trust Bar */}
