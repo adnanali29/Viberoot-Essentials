@@ -28,6 +28,14 @@ export const metadata = {
     url: "https://viberoot.ca",
     siteName: "VibeRoot Essentials",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
